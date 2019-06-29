@@ -364,6 +364,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpf-Xs-vJb">
                                         <rect key="frame" x="0.0" y="91" width="335" height="30"/>
                                         <state key="normal" title="Add Expense"/>
+                                        <connections>
+                                            <action selector="addExpenseButton:" destination="nr1-9C-j5V" eventType="touchUpInside" id="lCP-hi-MuL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -387,6 +390,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AwN-xJ-xlu"/>
                     </view>
+                    <connections>
+                        <outlet property="expenseAmountTextField" destination="rk7-HA-MQC" id="z8z-IX-4wN"/>
+                        <outlet property="expenseNameTextField" destination="U3X-xP-lqZ" id="KDC-tb-VIE"/>
+                        <outlet property="expenseTypeTextField" destination="Ipo-OY-Y5Z" id="59Y-Cp-oyE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUf-cg-2yW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="b9j-bn-gsS" userLabel="Exit" sceneMemberID="exit"/>

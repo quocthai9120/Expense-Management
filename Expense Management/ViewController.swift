@@ -17,8 +17,17 @@ class ViewController: UIViewController {
 
     struct GlobalVariables {
         static var balance: Double = 0
-        static var expenses: Dictionary<String, Double>?
-        static var expensesType: Dictionary<String, String>?
+        static var expensesType = [String : [String]]()
+        static var dates = [String : [[String : Double]]]()
+    }
+    
+    func readCSV(filename: String) -> String! {
+        guard let path = Bundle.main.path(forResource: filename, ofType: "txt") else {
+            return nil
+        }
+        print(path)
+        
+        return path
     }
     
 }
