@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F27A539A3E18DD3FFDABD311 /* Pods_Expense_Management.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156BD19C2C27372C071E5467 /* Pods_Expense_Management.framework */; };
+		F42F87BB22C7848300704DD8 /* TrackTodayExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F87BA22C7848300704DD8 /* TrackTodayExpensesViewController.swift */; };
+		F42F87BD22C784FE00704DD8 /* TrackCurrentWeekExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F87BC22C784FE00704DD8 /* TrackCurrentWeekExpensesViewController.swift */; };
+		F42F87BF22C7854C00704DD8 /* TrackCurrentMonthExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F87BE22C7854C00704DD8 /* TrackCurrentMonthExpensesViewController.swift */; };
 		F435120E22C65D580092300D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435120D22C65D580092300D /* AppDelegate.swift */; };
 		F435121022C65D580092300D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435120F22C65D580092300D /* ViewController.swift */; };
 		F435121322C65D580092300D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F435121122C65D580092300D /* Main.storyboard */; };
@@ -18,6 +22,8 @@
 		F446EAEE22C71C6400050DA3 /* TrackExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446EAED22C71C6400050DA3 /* TrackExpensesViewController.swift */; };
 		F446EAF022C71C8300050DA3 /* UpdateBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446EAEF22C71C8300050DA3 /* UpdateBalanceViewController.swift */; };
 		F446EAF222C71CA300050DA3 /* PredictExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446EAF122C71CA300050DA3 /* PredictExpensesViewController.swift */; };
+		F4774D3B22C7A975008822DC /* TodayExpensesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4774D3A22C7A975008822DC /* TodayExpensesTableViewController.swift */; };
+		F4774D3D22C7AA66008822DC /* TodayExpensesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4774D3C22C7AA66008822DC /* TodayExpensesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		156BD19C2C27372C071E5467 /* Pods_Expense_Management.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Expense_Management.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BA8D7D0669F27E8D9DD1612 /* Pods-Expense Management.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expense Management.debug.xcconfig"; path = "Target Support Files/Pods-Expense Management/Pods-Expense Management.debug.xcconfig"; sourceTree = "<group>"; };
+		8D28583E843A652D3B2B8B03 /* Pods-Expense Management.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expense Management.release.xcconfig"; path = "Target Support Files/Pods-Expense Management/Pods-Expense Management.release.xcconfig"; sourceTree = "<group>"; };
+		F42F87BA22C7848300704DD8 /* TrackTodayExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTodayExpensesViewController.swift; sourceTree = "<group>"; };
+		F42F87BC22C784FE00704DD8 /* TrackCurrentWeekExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCurrentWeekExpensesViewController.swift; sourceTree = "<group>"; };
+		F42F87BE22C7854C00704DD8 /* TrackCurrentMonthExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCurrentMonthExpensesViewController.swift; sourceTree = "<group>"; };
 		F435120A22C65D580092300D /* Expense Management.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense Management.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F435120D22C65D580092300D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F435120F22C65D580092300D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +67,8 @@
 		F446EAED22C71C6400050DA3 /* TrackExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackExpensesViewController.swift; sourceTree = "<group>"; };
 		F446EAEF22C71C8300050DA3 /* UpdateBalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBalanceViewController.swift; sourceTree = "<group>"; };
 		F446EAF122C71CA300050DA3 /* PredictExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictExpensesViewController.swift; sourceTree = "<group>"; };
+		F4774D3A22C7A975008822DC /* TodayExpensesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayExpensesTableViewController.swift; sourceTree = "<group>"; };
+		F4774D3C22C7AA66008822DC /* TodayExpensesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayExpensesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F27A539A3E18DD3FFDABD311 /* Pods_Expense_Management.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6FE9C37FD5CFE51FFA33895E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				156BD19C2C27372C071E5467 /* Pods_Expense_Management.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F435120122C65D580092300D = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +112,8 @@
 				F435122122C65D590092300D /* Expense ManagementTests */,
 				F435122C22C65D590092300D /* Expense ManagementUITests */,
 				F435120B22C65D580092300D /* Products */,
+				FBC292FCBC6F527931D9DA14 /* Pods */,
+				6FE9C37FD5CFE51FFA33895E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +133,11 @@
 				F435120D22C65D580092300D /* AppDelegate.swift */,
 				F435120F22C65D580092300D /* ViewController.swift */,
 				F435121122C65D580092300D /* Main.storyboard */,
+				F4774D3C22C7AA66008822DC /* TodayExpensesTableViewCell.swift */,
+				F4774D3A22C7A975008822DC /* TodayExpensesTableViewController.swift */,
+				F42F87BE22C7854C00704DD8 /* TrackCurrentMonthExpensesViewController.swift */,
+				F42F87BC22C784FE00704DD8 /* TrackCurrentWeekExpensesViewController.swift */,
+				F42F87BA22C7848300704DD8 /* TrackTodayExpensesViewController.swift */,
 				F446EAF122C71CA300050DA3 /* PredictExpensesViewController.swift */,
 				F446EAEF22C71C8300050DA3 /* UpdateBalanceViewController.swift */,
 				F446EAED22C71C6400050DA3 /* TrackExpensesViewController.swift */,
@@ -137,6 +167,15 @@
 			path = "Expense ManagementUITests";
 			sourceTree = "<group>";
 		};
+		FBC292FCBC6F527931D9DA14 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8BA8D7D0669F27E8D9DD1612 /* Pods-Expense Management.debug.xcconfig */,
+				8D28583E843A652D3B2B8B03 /* Pods-Expense Management.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +183,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F435123222C65D590092300D /* Build configuration list for PBXNativeTarget "Expense Management" */;
 			buildPhases = (
+				81ABF2FF0AE90873B1592A87 /* [CP] Check Pods Manifest.lock */,
 				F435120622C65D580092300D /* Sources */,
 				F435120722C65D580092300D /* Frameworks */,
 				F435120822C65D580092300D /* Resources */,
+				7B8BD4374C0BDE238CA3BB0B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -263,16 +304,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7B8BD4374C0BDE238CA3BB0B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Expense Management/Pods-Expense Management-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Expense Management/Pods-Expense Management-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Expense Management/Pods-Expense Management-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81ABF2FF0AE90873B1592A87 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Expense Management-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F435120622C65D580092300D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F42F87BB22C7848300704DD8 /* TrackTodayExpensesViewController.swift in Sources */,
 				F435121022C65D580092300D /* ViewController.swift in Sources */,
 				F446EAF022C71C8300050DA3 /* UpdateBalanceViewController.swift in Sources */,
 				F446EAEE22C71C6400050DA3 /* TrackExpensesViewController.swift in Sources */,
+				F4774D3B22C7A975008822DC /* TodayExpensesTableViewController.swift in Sources */,
 				F446EAF222C71CA300050DA3 /* PredictExpensesViewController.swift in Sources */,
+				F42F87BD22C784FE00704DD8 /* TrackCurrentWeekExpensesViewController.swift in Sources */,
 				F435120E22C65D580092300D /* AppDelegate.swift in Sources */,
+				F42F87BF22C7854C00704DD8 /* TrackCurrentMonthExpensesViewController.swift in Sources */,
+				F4774D3D22C7AA66008822DC /* TodayExpensesTableViewCell.swift in Sources */,
 				F446EAEC22C71C1E00050DA3 /* AddNewExpenseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,6 +534,7 @@
 		};
 		F435123322C65D590092300D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BA8D7D0669F27E8D9DD1612 /* Pods-Expense Management.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -463,6 +552,7 @@
 		};
 		F435123422C65D590092300D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D28583E843A652D3B2B8B03 /* Pods-Expense Management.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
