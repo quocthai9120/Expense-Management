@@ -167,6 +167,34 @@
             </objects>
             <point key="canvasLocation" x="864" y="700"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="sHt-cf-SN1">
+            <objects>
+                <viewController id="Kzy-hh-fgZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K38-mC-Suc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eR-Sx-P0H">
+                                <rect key="frame" x="106" y="718" width="163" height="30"/>
+                                <state key="normal" title="Back to Track Expenses"/>
+                                <connections>
+                                    <segue destination="hyn-QV-kXA" kind="show" id="qfW-y4-5da"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qhv-uA-cvU" firstAttribute="bottom" secondItem="1eR-Sx-P0H" secondAttribute="bottom" constant="30" id="8qR-FI-CqY"/>
+                            <constraint firstItem="1eR-Sx-P0H" firstAttribute="centerX" secondItem="K38-mC-Suc" secondAttribute="centerX" id="cBv-wk-FTM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qhv-uA-cvU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZnV-Pt-vAZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1728.8" y="699.7536945812808"/>
+        </scene>
         <!--Track Expenses View Controller-->
         <scene sceneID="Mok-uK-51Z">
             <objects>
@@ -203,14 +231,23 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAb-AB-1c6">
                                                 <rect key="frame" x="0.0" y="0.0" width="103" height="30"/>
                                                 <state key="normal" title="Today"/>
+                                                <connections>
+                                                    <segue destination="hXl-1U-VNg" kind="show" id="GQy-qi-y2f"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urx-D3-7Cj">
                                                 <rect key="frame" x="123" y="0.0" width="103" height="30"/>
                                                 <state key="normal" title="Within 7 Days"/>
+                                                <connections>
+                                                    <segue destination="Q2S-YO-vux" kind="show" id="Gby-FD-GTM"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chY-Fx-qoL">
                                                 <rect key="frame" x="246" y="0.0" width="103" height="30"/>
                                                 <state key="normal" title="Within 1 Month"/>
+                                                <connections>
+                                                    <segue destination="Kzy-hh-fgZ" kind="show" id="RqI-VX-YyR"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -232,6 +269,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMu-Dz-wiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="864" y="21"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="UoR-s6-fWc">
+            <objects>
+                <viewController id="Q2S-YO-vux" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6b2-aF-aUc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOJ-vC-5T1">
+                                <rect key="frame" x="106" y="718" width="163" height="30"/>
+                                <state key="normal" title="Back to Track Expenses"/>
+                                <connections>
+                                    <segue destination="hyn-QV-kXA" kind="show" id="gQP-Ib-j9A"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SPO-1I-ghp" firstAttribute="bottom" secondItem="ZOJ-vC-5T1" secondAttribute="bottom" constant="30" id="Lf4-Jm-gff"/>
+                            <constraint firstItem="ZOJ-vC-5T1" firstAttribute="centerX" secondItem="6b2-aF-aUc" secondAttribute="centerX" id="Uig-bo-wdo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SPO-1I-ghp"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KMe-eC-ju2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1729" y="21"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Dku-5N-5hb">
+            <objects>
+                <viewController id="hXl-1U-VNg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="drY-GM-yle">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yp1-au-YwM">
+                                <rect key="frame" x="106" y="718" width="163" height="30"/>
+                                <state key="normal" title="Back to Track Expenses"/>
+                                <connections>
+                                    <segue destination="hyn-QV-kXA" kind="show" id="GCS-cg-ug9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Yp1-au-YwM" firstAttribute="centerX" secondItem="drY-GM-yle" secondAttribute="centerX" id="7Ud-rn-GWY"/>
+                            <constraint firstItem="AZJ-Br-tpB" firstAttribute="bottom" secondItem="Yp1-au-YwM" secondAttribute="bottom" constant="30" id="R3M-Qc-Cfk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AZJ-Br-tpB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dd7-ET-k4r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1728.8" y="-644.33497536945811"/>
         </scene>
         <!--Predict Expenses View Controller-->
         <scene sceneID="U2l-Na-Qh7">
@@ -403,6 +496,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="K9u-45-QmB"/>
+        <segue reference="qfW-y4-5da"/>
+        <segue reference="dl8-ig-QSB"/>
     </inferredMetricsTieBreakers>
 </document>
