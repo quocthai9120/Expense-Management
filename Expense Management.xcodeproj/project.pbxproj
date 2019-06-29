@@ -14,6 +14,10 @@
 		F435121822C65D590092300D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F435121622C65D590092300D /* LaunchScreen.storyboard */; };
 		F435122322C65D590092300D /* Expense_ManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435122222C65D590092300D /* Expense_ManagementTests.swift */; };
 		F435122E22C65D590092300D /* Expense_ManagementUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F435122D22C65D590092300D /* Expense_ManagementUITests.swift */; };
+		F446EAEC22C71C1E00050DA3 /* AddNewExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446EAEB22C71C1E00050DA3 /* AddNewExpenseViewController.swift */; };
+		F446EAEE22C71C6400050DA3 /* TrackExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446EAED22C71C6400050DA3 /* TrackExpensesViewController.swift */; };
+		F446EAF022C71C8300050DA3 /* UpdateBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446EAEF22C71C8300050DA3 /* UpdateBalanceViewController.swift */; };
+		F446EAF222C71CA300050DA3 /* PredictExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446EAF122C71CA300050DA3 /* PredictExpensesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		F435122922C65D590092300D /* Expense ManagementUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Expense ManagementUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F435122D22C65D590092300D /* Expense_ManagementUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense_ManagementUITests.swift; sourceTree = "<group>"; };
 		F435122F22C65D590092300D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F446EAEB22C71C1E00050DA3 /* AddNewExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewExpenseViewController.swift; sourceTree = "<group>"; };
+		F446EAED22C71C6400050DA3 /* TrackExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackExpensesViewController.swift; sourceTree = "<group>"; };
+		F446EAEF22C71C8300050DA3 /* UpdateBalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBalanceViewController.swift; sourceTree = "<group>"; };
+		F446EAF122C71CA300050DA3 /* PredictExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictExpensesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +108,10 @@
 				F435120D22C65D580092300D /* AppDelegate.swift */,
 				F435120F22C65D580092300D /* ViewController.swift */,
 				F435121122C65D580092300D /* Main.storyboard */,
+				F446EAF122C71CA300050DA3 /* PredictExpensesViewController.swift */,
+				F446EAEF22C71C8300050DA3 /* UpdateBalanceViewController.swift */,
+				F446EAED22C71C6400050DA3 /* TrackExpensesViewController.swift */,
+				F446EAEB22C71C1E00050DA3 /* AddNewExpenseViewController.swift */,
 				F435121422C65D590092300D /* Assets.xcassets */,
 				F435121622C65D590092300D /* LaunchScreen.storyboard */,
 				F435121922C65D590092300D /* Info.plist */,
@@ -257,7 +269,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F435121022C65D580092300D /* ViewController.swift in Sources */,
+				F446EAF022C71C8300050DA3 /* UpdateBalanceViewController.swift in Sources */,
+				F446EAEE22C71C6400050DA3 /* TrackExpensesViewController.swift in Sources */,
+				F446EAF222C71CA300050DA3 /* PredictExpensesViewController.swift in Sources */,
 				F435120E22C65D580092300D /* AppDelegate.swift in Sources */,
+				F446EAEC22C71C1E00050DA3 /* AddNewExpenseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

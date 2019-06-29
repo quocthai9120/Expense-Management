@@ -15,6 +15,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    struct GlobalVariables {
+        static var balance: Double = 0
+        static var expenses: Dictionary<String, Double>?
+        static var expensesType: Dictionary<String, String>?
+    }
+    
 }
 
