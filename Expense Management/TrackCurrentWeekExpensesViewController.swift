@@ -20,9 +20,9 @@ class TrackCurrentWeekExpensesViewController: UIViewController, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let todayExpenses = getTodayExpenses()
-        for i in 0..<todayExpenses.count {
-            data.append("\(i + 1). \(todayExpenses[i])")
+        let currentWeekExpenses = getCurrentWeekExpenses()
+        for i in 0..<currentWeekExpenses.count {
+            data.append("\(i + 1). \(currentWeekExpenses[i])")
         }
         // Do any additional setup after loading the view.
         tableView.dataSource = self
@@ -64,7 +64,7 @@ class TrackCurrentWeekExpensesViewController: UIViewController, UITableViewDataS
         return "\(dayInWeek) \(month):\(day):\(year)"
     }
     
-    func getTodayExpenses() -> [String] {
+    func getCurrentWeekExpenses() -> [String] {
         let today: String = getCurrentTime()
         let tExpenses = ViewController.GlobalVariables.dates[today]
         
