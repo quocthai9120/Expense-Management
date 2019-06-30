@@ -8,14 +8,78 @@
 
 import UIKit
 
-class TrackCurrentWeekExpensesViewController: UIViewController {
+class TrackCurrentWeekExpensesViewController: UIViewController, UITableViewDataSource {
+    let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    var currentWeekExpensesAmount: Double = 0
+    private var data: [String] = []
 
+    // MARK: Properties
+    @IBOutlet weak var currentWeekExpensesAmountLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let todayExpenses = getTodayExpenses()
+        for i in 0..<todayExpenses.count {
+            data.append("\(i + 1). \(todayExpenses[i])")
+        }
         // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        currentWeekExpensesAmountLabel.text = "$" + String(currentWeekExpensesAmount)
     }
     
+    // MARK: TableView methods
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")!
+        
+        let text = data[indexPath.row]
+        
+        cell.textLabel?.text = text
+        
+        return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    // MARK: Supplement Methods
+    func getCurrentTime() -> String {
+        let date = Date()
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let dayInWeek = weekDays[(calendar.component(.weekday, from: date)) - 1]
+        /*
+         let hour = calendar.component(.hour, from: date)
+         let minute = calendar.component(.minute, from: date)
+         let second = calendar.component(.second, from: date)
+         */
+        return "\(dayInWeek) \(month):\(day):\(year)"
+    }
+    
+    func getTodayExpenses() -> [String] {
+        let today: String = getCurrentTime()
+        let tExpenses = ViewController.GlobalVariables.dates[today]
+        
+        var todayExpensesItems = [String]()
+        if tExpenses != nil {
+            let todayExpenses = tExpenses!
+            for dict in todayExpenses {
+                let key = Array(dict.keys)[0]
+                todayExpensesItems.append(key + " - $" + String(dict[key]!))
+                currentWeekExpensesAmount += dict[key]!
+            }
+        }
+        
+        return todayExpensesItems
+    }
 
     /*
     // MARK: - Navigation

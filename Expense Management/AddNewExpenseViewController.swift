@@ -10,6 +10,8 @@ import UIKit
 
 class AddNewExpenseViewController: UIViewController, UITextFieldDelegate {
 
+    let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
     // MARKS: Properties
     @IBOutlet weak var expenseNameTextField: UITextField!
     
@@ -51,9 +53,15 @@ class AddNewExpenseViewController: UIViewController, UITextFieldDelegate {
         let year = calendar.component(.year, from: date)
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
-        
-        return "\(month):\(day):\(year)"
+        let dayInWeek = weekDays[(calendar.component(.weekday, from: date)) - 1]
+        /*
+         let hour = calendar.component(.hour, from: date)
+         let minute = calendar.component(.minute, from: date)
+         let second = calendar.component(.second, from: date)
+         */
+        return "\(dayInWeek) \(month):\(day):\(year)"
     }
+
     // MARK: Actions
 
     @IBAction func addExpenseButton(_ sender: Any) {
