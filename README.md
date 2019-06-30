@@ -1,7 +1,7 @@
 # Expense-Management
 iOS Application to keep track Expenses
 
-Demo images for the application is included in the DemoImages directory.
+Demo images for the application is included in the Demo Images directory.
 
 * UPDATE JUNE, 2019: 
   - Current available functions:
