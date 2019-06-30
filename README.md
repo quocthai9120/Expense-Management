@@ -4,6 +4,7 @@ iOS Application to keep track Expenses
 Several Demo Images:
 ![Demo Images](https://github.com/quocthai9120/Expense-Management/blob/master/Demo%20Images/0%20-%20Merged.png)
 
+
 * UPDATE JUNE, 2019: 
   - Current available functions:
     + Add new Expenses to the app.
