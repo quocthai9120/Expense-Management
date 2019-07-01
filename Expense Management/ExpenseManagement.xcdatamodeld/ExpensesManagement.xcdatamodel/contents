@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Balance" representedClassName="Balance" syncable="YES" codeGenerationType="class">
+        <attribute name="balance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Dates" representedClassName="Dates" syncable="YES" codeGenerationType="class">
+        <attribute name="dates" optional="YES" attributeType="Transformable" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Dates" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="Balance" positionX="-54" positionY="0" width="128" height="60"/>
+    </elements>
+</model>

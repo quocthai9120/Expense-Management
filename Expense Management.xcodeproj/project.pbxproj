@@ -22,6 +22,7 @@
 		F446EAEE22C71C6400050DA3 /* TrackExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446EAED22C71C6400050DA3 /* TrackExpensesViewController.swift */; };
 		F446EAF022C71C8300050DA3 /* UpdateBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446EAEF22C71C8300050DA3 /* UpdateBalanceViewController.swift */; };
 		F446EAF222C71CA300050DA3 /* PredictExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F446EAF122C71CA300050DA3 /* PredictExpensesViewController.swift */; };
+		F46F4C0F22CA8B1900581E36 /* ExpenseManagement.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F46F4C0D22CA8B1900581E36 /* ExpenseManagement.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		F446EAED22C71C6400050DA3 /* TrackExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackExpensesViewController.swift; sourceTree = "<group>"; };
 		F446EAEF22C71C8300050DA3 /* UpdateBalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBalanceViewController.swift; sourceTree = "<group>"; };
 		F446EAF122C71CA300050DA3 /* PredictExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictExpensesViewController.swift; sourceTree = "<group>"; };
+		F46F4C0E22CA8B1900581E36 /* ExpensesManagement.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpensesManagement.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 		F435120C22C65D580092300D /* Expense Management */ = {
 			isa = PBXGroup;
 			children = (
+				F46F4C0D22CA8B1900581E36 /* ExpenseManagement.xcdatamodeld */,
 				F435120D22C65D580092300D /* AppDelegate.swift */,
 				F435120F22C65D580092300D /* ViewController.swift */,
 				F435121122C65D580092300D /* Main.storyboard */,
@@ -352,6 +355,7 @@
 				F446EAF222C71CA300050DA3 /* PredictExpensesViewController.swift in Sources */,
 				F42F87BD22C784FE00704DD8 /* TrackCurrentWeekExpensesViewController.swift in Sources */,
 				F435120E22C65D580092300D /* AppDelegate.swift in Sources */,
+				F46F4C0F22CA8B1900581E36 /* ExpenseManagement.xcdatamodeld in Sources */,
 				F42F87BF22C7854C00704DD8 /* TrackCurrentMonthExpensesViewController.swift in Sources */,
 				F446EAEC22C71C1E00050DA3 /* AddNewExpenseViewController.swift in Sources */,
 			);
@@ -678,6 +682,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F46F4C0D22CA8B1900581E36 /* ExpenseManagement.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F46F4C0E22CA8B1900581E36 /* ExpensesManagement.xcdatamodel */,
+			);
+			currentVersion = F46F4C0E22CA8B1900581E36 /* ExpensesManagement.xcdatamodel */;
+			path = ExpenseManagement.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F435120222C65D580092300D /* Project object */;
 }

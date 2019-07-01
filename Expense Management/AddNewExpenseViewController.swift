@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddNewExpenseViewController: UIViewController, UITextFieldDelegate {
 
@@ -58,27 +59,63 @@ class AddNewExpenseViewController: UIViewController, UITextFieldDelegate {
         return dateFormatterRes.string(from: date)
     }
 
+    func saveDates(dates: [String : [[String : Double]]]) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Dates", in: context)
+        let newEntity = NSManagedObject(entity: entity!, insertInto: context)
+        
+        newEntity.setValue(dates, forKey: "dates")
+        
+        do {
+            try context.save()
+            print("Saved!")
+        } catch {
+            print("Failed Saving!")
+        }
+    }
+    
+    func saveBalance(balance: Double) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Balance", in: context)
+        let newEntity = NSManagedObject(entity: entity!, insertInto: context)
+        
+        newEntity.setValue(balance, forKey: "balance")
+        
+        do {
+            try context.save()
+            print("Saved!")
+        } catch {
+            print("Failed Saving!")
+        }
+    }
+
     // MARK: Actions
 
     @IBAction func addExpenseButton(_ sender: Any) {
         let expenseName: String = String(expenseNameTextField.text!)
         // let expenseType: String = String(expenseTypeTextField.text!)
-        let expenseAmount: Double = Double(expenseAmountTextField.text!)!
-
-        // add current date-expense to the dates dictionary
-        let today: String = getCurrentTime()
-        let todayExpenses = ViewController.GlobalVariables.dates[today]
-        if todayExpenses == nil {
-            ViewController.GlobalVariables.dates[today] = []
-        }
-        ViewController.GlobalVariables.dates[today]! += [[expenseName : expenseAmount]]
-
-        // update balance
-        ViewController.GlobalVariables.balance -= expenseAmount
+        let amount = expenseAmountTextField.text
         
-        // print(ViewController.GlobalVariables.expensesType)
-        print("Balance:", ViewController.GlobalVariables.balance)
-        print(ViewController.GlobalVariables.dates)
+        if let expenseAmount = Double(amount!) {
+            // add current date-expense to the dates dictionary
+            let today: String = getCurrentTime()
+            let todayExpenses = ViewController.GlobalVariables.dates[today]
+            if todayExpenses == nil {
+                ViewController.GlobalVariables.dates[today] = []
+            }
+            ViewController.GlobalVariables.dates[today]! += [[expenseName : expenseAmount]]
+            
+            // update balance
+            ViewController.GlobalVariables.balance -= expenseAmount
+            
+            // save "dates" dictionary and "balance"
+            saveDates(dates: ViewController.GlobalVariables.dates)
+            saveBalance(balance: ViewController.GlobalVariables.balance)
+            
+            // print(ViewController.GlobalVariables.expensesType)
+            print("Balance:", ViewController.GlobalVariables.balance)
+            print(ViewController.GlobalVariables.dates)
+        }
     }
     
 }

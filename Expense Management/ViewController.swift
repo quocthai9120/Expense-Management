@@ -7,11 +7,12 @@
 //
 
 import UIKit
-import Charts
+import CoreData
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
+        getDates()
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
@@ -22,14 +23,35 @@ class ViewController: UIViewController {
         static var dates = [String : [[String : Double]]]()
     }
     
-    func readCSV(filename: String) -> String! {
-        guard let path = Bundle.main.path(forResource: filename, ofType: "txt") else {
-            return nil
+    // additional functions
+    func getDates() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Dates")
+        request.returnsObjectsAsFaults = false
+
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                GlobalVariables.dates = data.value(forKey: "dates") as! [String : [[String : Double]]]
+            }
+        } catch {
+            print("Failed to get Dates!")
         }
-        print(path)
-        
-        return path
     }
     
+    func getBalance() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Balance")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                GlobalVariables.balance = data.value(forKey: "balance") as! Double
+            }
+        } catch {
+            print("Failed to get Balance!")
+        }
+    }
 }
 
