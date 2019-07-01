@@ -256,6 +256,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qhv-uA-cvU"/>
                     </view>
+                    <connections>
+                        <outlet property="currentMonthExpensesAmountLabel" destination="0Ho-6U-Sva" id="SE0-f5-QRs"/>
+                        <outlet property="tableView" destination="ugj-XD-RaX" id="N9M-P9-XWN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZnV-Pt-vAZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -708,8 +712,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Gby-FD-GTM"/>
-        <segue reference="gQP-Ib-j9A"/>
+        <segue reference="qfW-y4-5da"/>
         <segue reference="dl8-ig-QSB"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,8 +9,8 @@
 import UIKit
 
 class TrackCurrentWeekExpensesViewController: UIViewController, UITableViewDataSource {
-    let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-
+    
+    // MARK: Global variables
     var currentWeekExpensesAmount: Double = 0
     private var data: [String] = []
 
@@ -66,7 +66,7 @@ class TrackCurrentWeekExpensesViewController: UIViewController, UITableViewDataS
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MM:dd:yyyy"
         let calendar = Calendar.current
-        let currentWeekDayIndex = calendar.component(.weekday, from: Date()) + 5
+        let currentWeekDayIndex = calendar.component(.weekday, from: Date()) - 1
         var date = calendar.startOfDay(for: Date())
 
         let allDates = Set(ViewController.GlobalVariables.dates.keys)
