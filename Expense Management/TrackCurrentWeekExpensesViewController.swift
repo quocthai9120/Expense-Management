@@ -10,6 +10,7 @@ import UIKit
 
 class TrackCurrentWeekExpensesViewController: UIViewController, UITableViewDataSource {
     let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
     var currentWeekExpensesAmount: Double = 0
     private var data: [String] = []
 
@@ -49,21 +50,48 @@ class TrackCurrentWeekExpensesViewController: UIViewController, UITableViewDataS
     }
     
     // MARK: Supplement Methods
+    
     func getCurrentTime() -> String {
         let date = Date()
         let calendar = Calendar.current
         let year = calendar.component(.year, from: date)
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
-        let dayInWeek = weekDays[(calendar.component(.weekday, from: date)) - 1]
         /*
          let hour = calendar.component(.hour, from: date)
          let minute = calendar.component(.minute, from: date)
          let second = calendar.component(.second, from: date)
+         let dayInWeek = weekDays[(calendar.component(.weekday, from: date)) - 1]
          */
-        return "\(dayInWeek) \(month):\(day):\(year)"
+        return "\(month):\(day):\(year)"
     }
     
+    func getCurrentWeekKeys() -> [String] {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "mm:dd:yyyy"
+        let calendar = Calendar.current
+        let currentWeekDayIndex = calendar.component(.weekday, from: Date())
+        var date = calendar.startOfDay(for: Date())
+
+        let allDates = Array(ViewController.GlobalVariables.dates.keys)
+        var currentWeekDates = [String]()
+
+        let dateFormatterRes = DateFormatter()
+        dateFormatterRes.dateFormat = "mm:dd:yyyy"
+
+        print("Hello today is", dateFormatterRes.string(from: date))
+        for i in 1...currentWeekDayIndex {
+            date = calendar.date(byAdding: Calendar.Component.day, value: -1, to: date)!
+            currentWeekDates.append(dateFormatterRes.string(from: date))
+            print("Hello", i, dateFormatterRes.string(from: date))
+        }
+
+        print("all dates", allDates)
+        print("Curr", currentWeekDates)
+        return allDates
+        
+    }
+
     func getCurrentWeekExpenses() -> [String] {
         let today: String = getCurrentTime()
         let tExpenses = ViewController.GlobalVariables.dates[today]
@@ -78,6 +106,7 @@ class TrackCurrentWeekExpensesViewController: UIViewController, UITableViewDataS
             }
         }
         
+        getCurrentWeekKeys()
         return todayExpensesItems
     }
 

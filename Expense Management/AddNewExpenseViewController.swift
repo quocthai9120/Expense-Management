@@ -53,13 +53,13 @@ class AddNewExpenseViewController: UIViewController, UITextFieldDelegate {
         let year = calendar.component(.year, from: date)
         let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
-        let dayInWeek = weekDays[(calendar.component(.weekday, from: date)) - 1]
         /*
          let hour = calendar.component(.hour, from: date)
          let minute = calendar.component(.minute, from: date)
          let second = calendar.component(.second, from: date)
+         let dayInWeek = weekDays[(calendar.component(.weekday, from: date)) - 1]
          */
-        return "\(dayInWeek) \(month):\(day):\(year)"
+        return "\(month):\(day):\(year)"
     }
 
     // MARK: Actions
