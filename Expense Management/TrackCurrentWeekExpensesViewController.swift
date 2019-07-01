@@ -52,62 +52,56 @@ class TrackCurrentWeekExpensesViewController: UIViewController, UITableViewDataS
     // MARK: Supplement Methods
     
     func getCurrentTime() -> String {
-        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MM:dd:yyyy"
         let calendar = Calendar.current
-        let year = calendar.component(.year, from: date)
-        let month = calendar.component(.month, from: date)
-        let day = calendar.component(.day, from: date)
-        /*
-         let hour = calendar.component(.hour, from: date)
-         let minute = calendar.component(.minute, from: date)
-         let second = calendar.component(.second, from: date)
-         let dayInWeek = weekDays[(calendar.component(.weekday, from: date)) - 1]
-         */
-        return "\(month):\(day):\(year)"
+        let date = calendar.startOfDay(for: Date())
+        let dateFormatterRes = DateFormatter()
+        dateFormatterRes.dateFormat = "EEEE, MM:dd:yyyy"
+        
+        return dateFormatterRes.string(from: date)
     }
     
     func getCurrentWeekKeys() -> [String] {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "mm:dd:yyyy"
+        dateFormatter.dateFormat = "EEEE, MM:dd:yyyy"
         let calendar = Calendar.current
-        let currentWeekDayIndex = calendar.component(.weekday, from: Date())
+        let currentWeekDayIndex = calendar.component(.weekday, from: Date()) + 5
         var date = calendar.startOfDay(for: Date())
 
-        let allDates = Array(ViewController.GlobalVariables.dates.keys)
+        let allDates = Set(ViewController.GlobalVariables.dates.keys)
         var currentWeekDates = [String]()
 
         let dateFormatterRes = DateFormatter()
-        dateFormatterRes.dateFormat = "mm:dd:yyyy"
+        dateFormatterRes.dateFormat = "EEEE, MM:dd:yyyy"
+        // add today expenses
+        currentWeekDates.append(dateFormatterRes.string(from: date))
 
-        print("Hello today is", dateFormatterRes.string(from: date))
-        for i in 1...currentWeekDayIndex {
+        // add the remaining expenses
+        for _ in 1...currentWeekDayIndex {
             date = calendar.date(byAdding: Calendar.Component.day, value: -1, to: date)!
             currentWeekDates.append(dateFormatterRes.string(from: date))
-            print("Hello", i, dateFormatterRes.string(from: date))
         }
 
-        print("all dates", allDates)
-        print("Curr", currentWeekDates)
-        return allDates
+        return [String](Set<String>(currentWeekDates).intersection(allDates))
         
     }
 
     func getCurrentWeekExpenses() -> [String] {
-        let today: String = getCurrentTime()
-        let tExpenses = ViewController.GlobalVariables.dates[today]
+        let currentWeekKeys: [String] = getCurrentWeekKeys()
+        var totalExpenses = [String]()
         
-        var todayExpensesItems = [String]()
-        if tExpenses != nil {
-            let todayExpenses = tExpenses!
-            for dict in todayExpenses {
-                let key = Array(dict.keys)[0]
-                todayExpensesItems.append(key + " - $" + String(dict[key]!))
-                currentWeekExpensesAmount += dict[key]!
+        for date in currentWeekKeys {
+            if let currentDayExpenses = ViewController.GlobalVariables.dates[date] {
+                for expense in currentDayExpenses {
+                    let expenseName = Array(expense.keys)[0]
+                    totalExpenses.append(expenseName + " - $" + String(expense[expenseName]!))
+                    currentWeekExpensesAmount += expense[expenseName]!
+                }
             }
         }
-        
-        getCurrentWeekKeys()
-        return todayExpensesItems
+
+        return totalExpenses
     }
 
     /*

@@ -48,18 +48,14 @@ class AddNewExpenseViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Supplemental functions
     func getCurrentTime() -> String {
-        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MM:dd:yyyy"
         let calendar = Calendar.current
-        let year = calendar.component(.year, from: date)
-        let month = calendar.component(.month, from: date)
-        let day = calendar.component(.day, from: date)
-        /*
-         let hour = calendar.component(.hour, from: date)
-         let minute = calendar.component(.minute, from: date)
-         let second = calendar.component(.second, from: date)
-         let dayInWeek = weekDays[(calendar.component(.weekday, from: date)) - 1]
-         */
-        return "\(month):\(day):\(year)"
+        let date = calendar.startOfDay(for: Date())
+        let dateFormatterRes = DateFormatter()
+        dateFormatterRes.dateFormat = "EEEE, MM:dd:yyyy"
+
+        return dateFormatterRes.string(from: date)
     }
 
     // MARK: Actions
