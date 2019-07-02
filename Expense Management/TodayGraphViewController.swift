@@ -62,7 +62,7 @@ class TodayGraphViewController: UIViewController {
         
         todayExpensesBarChartView.legend.font = UIFont(name: "Arial", size: 14)!
 
-        let chartDataSet = BarChartDataSet(entries: todayBarChartEntry, label: "Expenses Types - in USD")
+        let chartDataSet = BarChartDataSet(entries: todayBarChartEntry, label: "Expenses Types")
         print(xs)
 
         let chartData = BarChartData()
