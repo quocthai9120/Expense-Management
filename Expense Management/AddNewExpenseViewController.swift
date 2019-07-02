@@ -11,8 +11,6 @@ import CoreData
 
 class AddNewExpenseViewController: UIViewController, UITextFieldDelegate {
 
-    let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-
     // MARKS: Properties
     @IBOutlet weak var expenseNameTextField: UITextField!
     
@@ -68,12 +66,27 @@ class AddNewExpenseViewController: UIViewController, UITextFieldDelegate {
         
         do {
             try context.save()
-            print("Saved!")
+            print("Dates Saved!")
         } catch {
-            print("Failed Saving!")
+            print("Failed Saving Dates!")
         }
     }
     
+    func saveExpensesType(expensesType: [String : [String : Double]]) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "ExpensesType", in: context)
+        let newEntity = NSManagedObject(entity: entity!, insertInto: context)
+        
+        newEntity.setValue(expensesType, forKey: "expensesType")
+        
+        do {
+            try context.save()
+            print("ExpensesType Saved!")
+        } catch {
+            print("Failed Saving ExpensesType!")
+        }
+    }
+
     func saveBalance(balance: Double) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Balance", in: context)
@@ -83,9 +96,9 @@ class AddNewExpenseViewController: UIViewController, UITextFieldDelegate {
         
         do {
             try context.save()
-            print("Saved!")
+            print("Balance Saved!")
         } catch {
-            print("Failed Saving!")
+            print("Failed Saving Balance!")
         }
     }
 
@@ -93,7 +106,7 @@ class AddNewExpenseViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func addExpenseButton(_ sender: Any) {
         let expenseName: String = String(expenseNameTextField.text!)
-        // let expenseType: String = String(expenseTypeTextField.text!)
+        let expenseType: String = String(expenseTypeTextField.text!)
         let amount = expenseAmountTextField.text
         
         if let expenseAmount = Double(amount!) {
@@ -105,15 +118,28 @@ class AddNewExpenseViewController: UIViewController, UITextFieldDelegate {
             }
             ViewController.GlobalVariables.dates[today]! += [[expenseName : expenseAmount]]
             
+            // add [date : [expenseType : Amount]]
+            let todayExpensesType = ViewController.GlobalVariables.expensesType[today]
+            if todayExpensesType == nil {
+                ViewController.GlobalVariables.expensesType[today] = [String : Double]()
+            }
+            var currentExpense: Double? = ViewController.GlobalVariables.expensesType[today]![expenseType]
+            if currentExpense == nil {
+                currentExpense = 0
+            }
+            ViewController.GlobalVariables.expensesType[today]!.updateValue(currentExpense! + expenseAmount, forKey: expenseType)
+            
             // update balance
             ViewController.GlobalVariables.balance -= expenseAmount
             
-            // save "dates" dictionary and "balance"
+            // save "dates" dictionary, "expensesType" dictionary and "balance"
             saveDates(dates: ViewController.GlobalVariables.dates)
+            saveExpensesType(expensesType: ViewController.GlobalVariables.expensesType)
             saveBalance(balance: ViewController.GlobalVariables.balance)
             
             // print(ViewController.GlobalVariables.expensesType)
             print("Balance:", ViewController.GlobalVariables.balance)
+            print("ExpensesType", ViewController.GlobalVariables.expensesType)
             print(ViewController.GlobalVariables.dates)
         }
     }

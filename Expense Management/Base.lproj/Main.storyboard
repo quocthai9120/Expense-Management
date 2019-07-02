@@ -287,40 +287,35 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="E5G-KG-3pS">
-                                <rect key="frame" x="47" y="399" width="320" height="98"/>
+                                <rect key="frame" x="130" y="349" width="154.33333333333337" height="198"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a Category to View Expenses" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbN-lU-Ivo">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="154.33333333333334" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AD0-h4-Wuu">
-                                        <rect key="frame" x="0.0" y="68" width="320" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAb-AB-1c6">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
-                                                <state key="normal" title="Today"/>
-                                                <connections>
-                                                    <segue destination="hXl-1U-VNg" kind="show" id="GQy-qi-y2f"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urx-D3-7Cj">
-                                                <rect key="frame" x="110" y="0.0" width="100" height="30"/>
-                                                <state key="normal" title="Current Week"/>
-                                                <connections>
-                                                    <segue destination="Q2S-YO-vux" kind="show" id="Gby-FD-GTM"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chY-Fx-qoL">
-                                                <rect key="frame" x="220" y="0.0" width="100" height="30"/>
-                                                <state key="normal" title="Current Month"/>
-                                                <connections>
-                                                    <segue destination="Kzy-hh-fgZ" kind="show" id="RqI-VX-YyR"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAb-AB-1c6">
+                                        <rect key="frame" x="0.0" y="68" width="154.33333333333334" height="30"/>
+                                        <state key="normal" title="Today"/>
+                                        <connections>
+                                            <segue destination="hXl-1U-VNg" kind="show" id="GQy-qi-y2f"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urx-D3-7Cj">
+                                        <rect key="frame" x="0.0" y="118" width="154.33333333333334" height="30"/>
+                                        <state key="normal" title="Current Week"/>
+                                        <connections>
+                                            <segue destination="Q2S-YO-vux" kind="show" id="Gby-FD-GTM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chY-Fx-qoL">
+                                        <rect key="frame" x="0.0" y="168" width="154.33333333333334" height="30"/>
+                                        <state key="normal" title="Current Month"/>
+                                        <connections>
+                                            <segue destination="Kzy-hh-fgZ" kind="show" id="RqI-VX-YyR"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -712,6 +707,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="RqI-VX-YyR"/>
         <segue reference="qfW-y4-5da"/>
         <segue reference="dl8-ig-QSB"/>
     </inferredMetricsTieBreakers>

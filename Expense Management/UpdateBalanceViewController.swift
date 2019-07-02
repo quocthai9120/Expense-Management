@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class UpdateBalanceViewController: UIViewController {
 
@@ -32,10 +33,27 @@ class UpdateBalanceViewController: UIViewController {
     }
     */
 
+    // MARK: Supplement Functions
+    func saveBalance(balance: Double) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Balance", in: context)
+        let newEntity = NSManagedObject(entity: entity!, insertInto: context)
+        
+        newEntity.setValue(balance, forKey: "balance")
+        
+        do {
+            try context.save()
+            print("Saved!")
+        } catch {
+            print("Failed Saving!")
+        }
+    }
+
     @IBAction func addBalanceButton(_ sender: Any) {
         if let addAmount = Double(amountToAddTextField.text!) {
             ViewController.GlobalVariables.balance += addAmount
             currentBalanceLabel.text = String(ViewController.GlobalVariables.balance)
+            saveBalance(balance: ViewController.GlobalVariables.balance)
         }
     }
 }

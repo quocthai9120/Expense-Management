@@ -6,8 +6,12 @@
     <entity name="Dates" representedClassName="Dates" syncable="YES" codeGenerationType="class">
         <attribute name="dates" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
+    <entity name="ExpensesType" representedClassName="ExpensesType" syncable="YES" codeGenerationType="class">
+        <attribute name="expensesType" optional="YES" attributeType="Transformable" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Dates" positionX="-63" positionY="-18" width="128" height="60"/>
         <element name="Balance" positionX="-54" positionY="0" width="128" height="60"/>
+        <element name="Dates" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="ExpensesType" positionX="-54" positionY="0" width="128" height="60"/>
     </elements>
 </model>

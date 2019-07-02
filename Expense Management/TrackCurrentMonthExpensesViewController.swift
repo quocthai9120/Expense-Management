@@ -80,8 +80,7 @@ class TrackCurrentMonthExpensesViewController: UIViewController, UITableViewData
             date = calendar.date(byAdding: Calendar.Component.day, value: -1, to: date)!
             currentMonthDates.append(dateFormatterRes.string(from: date))
         }
-        
-        print("CMD", currentMonthDates)
+
         return [String](Set<String>(currentMonthDates).intersection(allDates))
         
     }
