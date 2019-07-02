@@ -71,7 +71,7 @@ class TodayGraphViewController: UIViewController {
         chartDataSet.colors = ChartColorTemplates.colorful()
         
         todayExpensesBarChartView.noDataText = "No expense to display!"
-        todayExpensesBarChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        todayExpensesBarChartView.animate(xAxisDuration: 1.0, yAxisDuration: 2.0)
     }
 
     /*

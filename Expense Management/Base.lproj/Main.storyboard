@@ -202,9 +202,7 @@
                                                 <rect key="frame" x="132" y="0.0" width="112" height="30"/>
                                                 <state key="normal" title="Expenses Graph"/>
                                                 <connections>
-                                                    <segue destination="Zpk-bf-cdf" kind="popoverPresentation" popoverAnchorView="iJ2-lq-hrq" id="KWf-dx-aY2">
-                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                    </segue>
+                                                    <segue destination="Zpk-bf-cdf" kind="show" id="aBd-8a-F2r"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -375,9 +373,7 @@
                                                 <rect key="frame" x="132" y="0.0" width="112" height="30"/>
                                                 <state key="normal" title="Expenses Graph"/>
                                                 <connections>
-                                                    <segue destination="gRU-Uc-F3c" kind="popoverPresentation" popoverAnchorView="tW9-l4-2tB" id="t5v-9W-iuV">
-                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                    </segue>
+                                                    <segue destination="gRU-Uc-F3c" kind="show" id="AL6-gU-lGt"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -482,9 +478,7 @@
                                                 <state key="normal" title="Expenses Graph"/>
                                                 <connections>
                                                     <action selector="expensesGraphButton:" destination="hXl-1U-VNg" eventType="touchUpInside" id="4mX-8t-b2X"/>
-                                                    <segue destination="FSr-Z6-WAw" kind="popoverPresentation" popoverAnchorView="Ehx-tX-EpB" id="hjv-XH-VLR">
-                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                    </segue>
+                                                    <segue destination="FSr-Z6-WAw" kind="show" id="9oJ-ME-J5V"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -867,9 +861,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="aBd-8a-F2r"/>
         <segue reference="Kct-oR-152"/>
         <segue reference="PZ6-dS-fGB"/>
-        <segue reference="GCS-cg-ug9"/>
+        <segue reference="qfW-y4-5da"/>
         <segue reference="6rk-XP-hJO"/>
         <segue reference="dl8-ig-QSB"/>
     </inferredMetricsTieBreakers>
