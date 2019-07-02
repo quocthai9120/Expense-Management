@@ -201,6 +201,11 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJ2-lq-hrq">
                                                 <rect key="frame" x="132" y="0.0" width="112" height="30"/>
                                                 <state key="normal" title="Expenses Graph"/>
+                                                <connections>
+                                                    <segue destination="Zpk-bf-cdf" kind="popoverPresentation" popoverAnchorView="iJ2-lq-hrq" id="KWf-dx-aY2">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -369,6 +374,11 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tW9-l4-2tB">
                                                 <rect key="frame" x="132" y="0.0" width="112" height="30"/>
                                                 <state key="normal" title="Expenses Graph"/>
+                                                <connections>
+                                                    <segue destination="gRU-Uc-F3c" kind="popoverPresentation" popoverAnchorView="tW9-l4-2tB" id="t5v-9W-iuV">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -472,6 +482,9 @@
                                                 <state key="normal" title="Expenses Graph"/>
                                                 <connections>
                                                     <action selector="expensesGraphButton:" destination="hXl-1U-VNg" eventType="touchUpInside" id="4mX-8t-b2X"/>
+                                                    <segue destination="FSr-Z6-WAw" kind="popoverPresentation" popoverAnchorView="Ehx-tX-EpB" id="hjv-XH-VLR">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -536,6 +549,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dd7-ET-k4r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1728.8" y="-644.33497536945811"/>
+        </scene>
+        <!--Today Graph View Controller-->
+        <scene sceneID="LxK-uY-z5J">
+            <objects>
+                <viewController id="FSr-Z6-WAw" customClass="TodayGraphViewController" customModule="Expense_Management" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b9J-hu-qo4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fff-76-2gj" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="10" y="303.66666666666674" width="394" height="418.33333333333326"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75v-HR-3OM">
+                                <rect key="frame" x="123.66666666666669" y="802" width="167" height="30"/>
+                                <state key="normal" title="Back to Today Expenses"/>
+                                <connections>
+                                    <segue destination="hXl-1U-VNg" kind="show" id="Kct-oR-152"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today Expenses" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOm-gC-HuB">
+                                <rect key="frame" x="0.0" y="144" width="414" height="69.666666666666686"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="75v-HR-3OM" firstAttribute="bottom" secondItem="gTH-6c-Ap3" secondAttribute="bottom" constant="-30" id="2Ea-ZE-PuK"/>
+                            <constraint firstItem="wOm-gC-HuB" firstAttribute="leading" secondItem="gTH-6c-Ap3" secondAttribute="leading" id="5Ug-NW-g0K"/>
+                            <constraint firstItem="75v-HR-3OM" firstAttribute="top" secondItem="fff-76-2gj" secondAttribute="bottom" constant="80" id="7lc-oV-nHH"/>
+                            <constraint firstItem="75v-HR-3OM" firstAttribute="centerX" secondItem="b9J-hu-qo4" secondAttribute="centerX" id="7qu-lF-6uv"/>
+                            <constraint firstItem="gTH-6c-Ap3" firstAttribute="trailing" secondItem="wOm-gC-HuB" secondAttribute="trailing" id="AHF-bB-gWp"/>
+                            <constraint firstItem="gTH-6c-Ap3" firstAttribute="trailing" secondItem="fff-76-2gj" secondAttribute="trailing" constant="10" id="Suq-uJ-107"/>
+                            <constraint firstItem="wOm-gC-HuB" firstAttribute="top" secondItem="gTH-6c-Ap3" secondAttribute="top" constant="100" id="rFv-5P-ojq"/>
+                            <constraint firstItem="fff-76-2gj" firstAttribute="leading" secondItem="gTH-6c-Ap3" secondAttribute="leading" constant="10" id="rLj-yU-bDU"/>
+                            <constraint firstItem="fff-76-2gj" firstAttribute="top" secondItem="wOm-gC-HuB" secondAttribute="bottom" constant="90" id="tD6-D0-Y5y"/>
+                            <constraint firstItem="wOm-gC-HuB" firstAttribute="centerX" secondItem="b9J-hu-qo4" secondAttribute="centerX" id="tGQ-Rt-T0J"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gTH-6c-Ap3"/>
+                    </view>
+                    <connections>
+                        <outlet property="todayExpensesBarChartView" destination="fff-76-2gj" id="6NR-qC-jGP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RfK-ZB-QiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2475" y="-645"/>
         </scene>
         <!--Predict Expenses View Controller-->
         <scene sceneID="U2l-Na-Qh7">
@@ -705,9 +767,104 @@
             </objects>
             <point key="canvasLocation" x="864" y="-643"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="o54-BR-EPZ">
+            <objects>
+                <viewController id="gRU-Uc-F3c" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GZp-3K-nbk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnC-6s-9cA" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="10" y="303.66666666666674" width="394" height="418.33333333333326"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ht-ma-ANc">
+                                <rect key="frame" x="97" y="802" width="220" height="30"/>
+                                <state key="normal" title="Back to Current Week Expenses"/>
+                                <connections>
+                                    <segue destination="Q2S-YO-vux" kind="show" id="PZ6-dS-fGB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Week Expenses" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBA-6v-SW3">
+                                <rect key="frame" x="0.0" y="144" width="414" height="69.666666666666686"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7Ht-ma-ANc" firstAttribute="top" secondItem="fnC-6s-9cA" secondAttribute="bottom" constant="80" id="B2Z-sF-arp"/>
+                            <constraint firstItem="iBA-6v-SW3" firstAttribute="top" secondItem="KTg-ow-F6M" secondAttribute="top" constant="100" id="B8y-51-xyL"/>
+                            <constraint firstItem="KTg-ow-F6M" firstAttribute="trailing" secondItem="fnC-6s-9cA" secondAttribute="trailing" constant="10" id="CdP-SI-vmg"/>
+                            <constraint firstItem="iBA-6v-SW3" firstAttribute="centerX" secondItem="GZp-3K-nbk" secondAttribute="centerX" id="M0L-xR-JPe"/>
+                            <constraint firstItem="fnC-6s-9cA" firstAttribute="top" secondItem="iBA-6v-SW3" secondAttribute="bottom" constant="90" id="OEx-e8-KvD"/>
+                            <constraint firstItem="7Ht-ma-ANc" firstAttribute="bottom" secondItem="KTg-ow-F6M" secondAttribute="bottom" constant="-30" id="bXv-bW-IuE"/>
+                            <constraint firstItem="iBA-6v-SW3" firstAttribute="leading" secondItem="KTg-ow-F6M" secondAttribute="leading" id="eIs-bp-i6P"/>
+                            <constraint firstItem="7Ht-ma-ANc" firstAttribute="centerX" secondItem="GZp-3K-nbk" secondAttribute="centerX" id="fAD-Tw-vRk"/>
+                            <constraint firstItem="KTg-ow-F6M" firstAttribute="trailing" secondItem="iBA-6v-SW3" secondAttribute="trailing" id="oJW-3e-4ob"/>
+                            <constraint firstItem="fnC-6s-9cA" firstAttribute="leading" secondItem="KTg-ow-F6M" secondAttribute="leading" constant="10" id="pyG-4j-eNi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KTg-ow-F6M"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="40v-pO-jDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2474" y="21"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0EY-Gh-Xvn">
+            <objects>
+                <viewController id="Zpk-bf-cdf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Fz-z4-FnD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUQ-AK-bFR" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="10" y="303.66666666666674" width="394" height="418.33333333333326"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUS-GK-GPn">
+                                <rect key="frame" x="94" y="802" width="226" height="30"/>
+                                <state key="normal" title="Back to Current Month Expenses"/>
+                                <connections>
+                                    <segue destination="Kzy-hh-fgZ" kind="show" id="6rk-XP-hJO"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Month Expenses" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGf-VR-PaD">
+                                <rect key="frame" x="0.0" y="144" width="414" height="69.666666666666686"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oUS-GK-GPn" firstAttribute="bottom" secondItem="GqJ-ET-vS9" secondAttribute="bottom" constant="-30" id="FEN-6A-nFt"/>
+                            <constraint firstItem="PGf-VR-PaD" firstAttribute="leading" secondItem="GqJ-ET-vS9" secondAttribute="leading" id="ZOo-OA-C5d"/>
+                            <constraint firstItem="oUS-GK-GPn" firstAttribute="top" secondItem="UUQ-AK-bFR" secondAttribute="bottom" constant="80" id="afO-L3-8cd"/>
+                            <constraint firstItem="oUS-GK-GPn" firstAttribute="centerX" secondItem="8Fz-z4-FnD" secondAttribute="centerX" id="cP8-Ma-e5P"/>
+                            <constraint firstItem="GqJ-ET-vS9" firstAttribute="trailing" secondItem="UUQ-AK-bFR" secondAttribute="trailing" constant="10" id="fga-y6-AaE"/>
+                            <constraint firstItem="PGf-VR-PaD" firstAttribute="centerX" secondItem="8Fz-z4-FnD" secondAttribute="centerX" id="j6X-kw-Tgj"/>
+                            <constraint firstItem="PGf-VR-PaD" firstAttribute="top" secondItem="GqJ-ET-vS9" secondAttribute="top" constant="100" id="nLO-06-y9G"/>
+                            <constraint firstItem="GqJ-ET-vS9" firstAttribute="trailing" secondItem="PGf-VR-PaD" secondAttribute="trailing" id="nzm-5h-Qit"/>
+                            <constraint firstItem="UUQ-AK-bFR" firstAttribute="leading" secondItem="GqJ-ET-vS9" secondAttribute="leading" constant="10" id="rvN-Jt-G1A"/>
+                            <constraint firstItem="UUQ-AK-bFR" firstAttribute="top" secondItem="PGf-VR-PaD" secondAttribute="bottom" constant="90" id="uId-Gk-wcL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GqJ-ET-vS9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZE8-08-JVM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2474" y="700"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GCS-cg-ug9"/>
+        <segue reference="Kct-oR-152"/>
+        <segue reference="PZ6-dS-fGB"/>
+        <segue reference="qfW-y4-5da"/>
+        <segue reference="6rk-XP-hJO"/>
         <segue reference="dl8-ig-QSB"/>
     </inferredMetricsTieBreakers>
 </document>
