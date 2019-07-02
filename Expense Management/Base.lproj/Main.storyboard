@@ -767,10 +767,10 @@
             </objects>
             <point key="canvasLocation" x="864" y="-643"/>
         </scene>
-        <!--View Controller-->
+        <!--Current Week Graph View View Controller-->
         <scene sceneID="o54-BR-EPZ">
             <objects>
-                <viewController id="gRU-Uc-F3c" sceneMemberID="viewController">
+                <viewController id="gRU-Uc-F3c" customClass="CurrentWeekGraphViewViewController" customModule="Expense_Management" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GZp-3K-nbk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -808,15 +808,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KTg-ow-F6M"/>
                     </view>
+                    <connections>
+                        <outlet property="currentWeekExpensesBarChartView" destination="fnC-6s-9cA" id="jge-w1-xiM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40v-pO-jDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2474" y="21"/>
         </scene>
-        <!--View Controller-->
+        <!--Current Month Graph View View Controller-->
         <scene sceneID="0EY-Gh-Xvn">
             <objects>
-                <viewController id="Zpk-bf-cdf" sceneMemberID="viewController">
+                <viewController id="Zpk-bf-cdf" customClass="CurrentMonthGraphViewViewController" customModule="Expense_Management" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Fz-z4-FnD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -854,6 +857,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GqJ-ET-vS9"/>
                     </view>
+                    <connections>
+                        <outlet property="currentMonthExpensesBarChartView" destination="UUQ-AK-bFR" id="uqf-0u-Ndv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZE8-08-JVM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

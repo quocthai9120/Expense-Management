@@ -52,7 +52,7 @@ class TodayGraphViewController: UIViewController {
         // set x label
         todayExpensesBarChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xs)
         todayExpensesBarChartView.xAxis.granularity = 1
-        todayExpensesBarChartView.xAxis.labelFont = UIFont.systemFont(ofSize: 10.0, weight: UIFont.Weight.semibold)
+        todayExpensesBarChartView.xAxis.labelFont = UIFont.systemFont(ofSize: 12.0, weight: UIFont.Weight.semibold)
         todayExpensesBarChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
         
         // hide all grids
@@ -60,7 +60,9 @@ class TodayGraphViewController: UIViewController {
         todayExpensesBarChartView.rightAxis.drawGridLinesEnabled = false
         todayExpensesBarChartView.leftAxis.drawGridLinesEnabled = false
         
-        let chartDataSet = BarChartDataSet(entries: todayBarChartEntry, label: "Expenses Types")
+        todayExpensesBarChartView.legend.font = UIFont(name: "Arial", size: 14)!
+
+        let chartDataSet = BarChartDataSet(entries: todayBarChartEntry, label: "Expenses Types - in USD")
         print(xs)
 
         let chartData = BarChartData()

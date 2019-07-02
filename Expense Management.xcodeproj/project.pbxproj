@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F27A539A3E18DD3FFDABD311 /* Pods_Expense_Management.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156BD19C2C27372C071E5467 /* Pods_Expense_Management.framework */; };
 		F421478322CBB4DF00128474 /* TodayGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F421478222CBB4DF00128474 /* TodayGraphViewController.swift */; };
+		F421478522CBCAA300128474 /* CurrentWeekGraphViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F421478422CBCAA300128474 /* CurrentWeekGraphViewViewController.swift */; };
+		F421478722CBCAB900128474 /* CurrentMonthGraphViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F421478622CBCAB900128474 /* CurrentMonthGraphViewViewController.swift */; };
 		F42F87BB22C7848300704DD8 /* TrackTodayExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F87BA22C7848300704DD8 /* TrackTodayExpensesViewController.swift */; };
 		F42F87BD22C784FE00704DD8 /* TrackCurrentWeekExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F87BC22C784FE00704DD8 /* TrackCurrentWeekExpensesViewController.swift */; };
 		F42F87BF22C7854C00704DD8 /* TrackCurrentMonthExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42F87BE22C7854C00704DD8 /* TrackCurrentMonthExpensesViewController.swift */; };
@@ -48,6 +50,8 @@
 		8BA8D7D0669F27E8D9DD1612 /* Pods-Expense Management.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expense Management.debug.xcconfig"; path = "Target Support Files/Pods-Expense Management/Pods-Expense Management.debug.xcconfig"; sourceTree = "<group>"; };
 		8D28583E843A652D3B2B8B03 /* Pods-Expense Management.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Expense Management.release.xcconfig"; path = "Target Support Files/Pods-Expense Management/Pods-Expense Management.release.xcconfig"; sourceTree = "<group>"; };
 		F421478222CBB4DF00128474 /* TodayGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayGraphViewController.swift; sourceTree = "<group>"; };
+		F421478422CBCAA300128474 /* CurrentWeekGraphViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeekGraphViewViewController.swift; sourceTree = "<group>"; };
+		F421478622CBCAB900128474 /* CurrentMonthGraphViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentMonthGraphViewViewController.swift; sourceTree = "<group>"; };
 		F42F87BA22C7848300704DD8 /* TrackTodayExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTodayExpensesViewController.swift; sourceTree = "<group>"; };
 		F42F87BC22C784FE00704DD8 /* TrackCurrentWeekExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCurrentWeekExpensesViewController.swift; sourceTree = "<group>"; };
 		F42F87BE22C7854C00704DD8 /* TrackCurrentMonthExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCurrentMonthExpensesViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 				F435120D22C65D580092300D /* AppDelegate.swift */,
 				F435120F22C65D580092300D /* ViewController.swift */,
 				F435121122C65D580092300D /* Main.storyboard */,
+				F421478622CBCAB900128474 /* CurrentMonthGraphViewViewController.swift */,
+				F421478422CBCAA300128474 /* CurrentWeekGraphViewViewController.swift */,
 				F421478222CBB4DF00128474 /* TodayGraphViewController.swift */,
 				F42F87BA22C7848300704DD8 /* TrackTodayExpensesViewController.swift */,
 				F42F87BC22C784FE00704DD8 /* TrackCurrentWeekExpensesViewController.swift */,
@@ -359,8 +365,10 @@
 				F42F87BD22C784FE00704DD8 /* TrackCurrentWeekExpensesViewController.swift in Sources */,
 				F435120E22C65D580092300D /* AppDelegate.swift in Sources */,
 				F421478322CBB4DF00128474 /* TodayGraphViewController.swift in Sources */,
+				F421478722CBCAB900128474 /* CurrentMonthGraphViewViewController.swift in Sources */,
 				F46F4C0F22CA8B1900581E36 /* ExpenseManagement.xcdatamodeld in Sources */,
 				F42F87BF22C7854C00704DD8 /* TrackCurrentMonthExpensesViewController.swift in Sources */,
+				F421478522CBCAA300128474 /* CurrentWeekGraphViewViewController.swift in Sources */,
 				F446EAEC22C71C1E00050DA3 /* AddNewExpenseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
