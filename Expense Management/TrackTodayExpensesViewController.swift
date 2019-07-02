@@ -10,7 +10,6 @@ import UIKit
 import Charts
 
 class TrackTodayExpensesViewController: UIViewController, UITableViewDataSource {
-    let weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     var todayTotalExpensesAmount: Double = 0
 
     @IBOutlet weak var todayTotalExpensesAmountLabel: UILabel!

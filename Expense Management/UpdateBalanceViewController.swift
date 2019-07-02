@@ -52,7 +52,7 @@ class UpdateBalanceViewController: UIViewController {
     @IBAction func addBalanceButton(_ sender: Any) {
         if let addAmount = Double(amountToAddTextField.text!) {
             ViewController.GlobalVariables.balance += addAmount
-            currentBalanceLabel.text = String(ViewController.GlobalVariables.balance)
+            currentBalanceLabel.text = String(round(ViewController.GlobalVariables.balance * 100) / 100)
             saveBalance(balance: ViewController.GlobalVariables.balance)
         }
     }
