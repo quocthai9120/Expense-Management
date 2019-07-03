@@ -27,7 +27,7 @@ class TrackCurrentWeekExpensesViewController: UIViewController, UITableViewDataS
         }
         // Do any additional setup after loading the view.
         tableView.dataSource = self
-        currentWeekExpensesAmountLabel.text = "$" + String(TrackCurrentWeekExpensesViewController.currentWeekExpensesAmount)
+        currentWeekExpensesAmountLabel.text = "$" + String(round(TrackCurrentWeekExpensesViewController.currentWeekExpensesAmount * 100) / 100)
     }
     
     // MARK: TableView methods

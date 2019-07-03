@@ -26,7 +26,7 @@ class CurrentWeekGraphViewViewController: UIViewController {
             print("No Expense this week")
         } else {
             currentWeekChartInit(currentWeekExpensesType: currentWeekExpensesType)
-            currentWeekExpensesAmountLabel.text = "$" + String(TrackCurrentWeekExpensesViewController.currentWeekExpensesAmount)
+            currentWeekExpensesAmountLabel.text = "$" + String(round(TrackCurrentWeekExpensesViewController.currentWeekExpensesAmount * 100) / 100)
         }
     }
     
@@ -103,9 +103,17 @@ class CurrentWeekGraphViewViewController: UIViewController {
             currentWeekBarChartEntries.append(currentBarChartEntry)
         }
 
+        // set x_axis customizations
         let xAxisLabels: [String] = printDateFormat(datesList: currentWeekKeys)
         currentWeekExpensesBarChartView.xAxis.labelCount = xAxisLabels.count
         currentWeekExpensesBarChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xAxisLabels)
+        currentWeekExpensesBarChartView.xAxis.granularity = 1
+        currentWeekExpensesBarChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
+        
+        // hide all grids
+        currentWeekExpensesBarChartView.xAxis.drawGridLinesEnabled = false
+        currentWeekExpensesBarChartView.rightAxis.drawGridLinesEnabled = false
+        currentWeekExpensesBarChartView.leftAxis.drawGridLinesEnabled = false
 
         let chartDataSet = BarChartDataSet(entries: currentWeekBarChartEntries, label: "")
         chartDataSet.colors = ChartColorTemplates.colorful()
@@ -113,13 +121,16 @@ class CurrentWeekGraphViewViewController: UIViewController {
         chartDataSet.drawValuesEnabled = false
         let data = BarChartData(dataSet: chartDataSet)
         currentWeekExpensesBarChartView.data = data
+        
+        currentWeekExpensesBarChartView.noDataText = "No expense to display!"
+        currentWeekExpensesBarChartView.animate(xAxisDuration: 0.5, yAxisDuration: 1.0)
     }
     
     func printDateFormat(datesList: [String]) -> [String] {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MM:dd:yyyy"
         let dateFormatterRes = DateFormatter()
-        dateFormatterRes.dateFormat = "EEEE"
+        dateFormatterRes.dateFormat = "EEE"
 
         var datesRes: [String] = []
         for date in datesList {

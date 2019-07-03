@@ -26,7 +26,7 @@ class TrackTodayExpensesViewController: UIViewController, UITableViewDataSource 
         }
         // Do any additional setup after loading the view.
         tableView.dataSource = self
-        todayTotalExpensesAmountLabel.text = "$" + String(TrackTodayExpensesViewController.todayTotalExpensesAmount)
+        todayTotalExpensesAmountLabel.text = "$" + String(round(TrackTodayExpensesViewController.todayTotalExpensesAmount * 100) / 100)
     }
     
 

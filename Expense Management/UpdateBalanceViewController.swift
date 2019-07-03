@@ -19,7 +19,7 @@ class UpdateBalanceViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        currentBalanceLabel.text = String(ViewController.GlobalVariables.balance)
+        currentBalanceLabel.text = String(round(ViewController.GlobalVariables.balance * 100) / 100)
     }
     
 

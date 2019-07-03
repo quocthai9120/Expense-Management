@@ -21,7 +21,7 @@ class TodayGraphViewController: UIViewController {
         
         if let todayExpensesType = ViewController.GlobalVariables.expensesType[getCurrentTime()] {
             todayBarChartInit(expensesType: todayExpensesType)
-            totalExpensesTodayLabel.text = "$" + String(TrackTodayExpensesViewController.todayTotalExpensesAmount)
+            totalExpensesTodayLabel.text = "$" + String(round(TrackTodayExpensesViewController.todayTotalExpensesAmount * 100) / 100)
         }
         // Do any additional setup after loading the view.
     }
@@ -72,7 +72,7 @@ class TodayGraphViewController: UIViewController {
         chartDataSet.colors = ChartColorTemplates.colorful()
         
         todayExpensesBarChartView.noDataText = "No expense to display!"
-        todayExpensesBarChartView.animate(xAxisDuration: 1.0, yAxisDuration: 2.0)
+        todayExpensesBarChartView.animate(xAxisDuration: 0.5, yAxisDuration: 1.0)
     }
 
     /*

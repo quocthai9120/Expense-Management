@@ -26,7 +26,7 @@ class TrackCurrentMonthExpensesViewController: UIViewController, UITableViewData
         }
         // Do any additional setup after loading the view.
         tableView.dataSource = self
-        currentMonthExpensesAmountLabel.text = "$" + String(TrackCurrentMonthExpensesViewController.currentMonthExpensesAmount)
+        currentMonthExpensesAmountLabel.text = "$" + String(round(TrackCurrentMonthExpensesViewController.currentMonthExpensesAmount * 100) / 100)
     }
 
     // MARK: TableView methods
@@ -82,7 +82,6 @@ class TrackCurrentMonthExpensesViewController: UIViewController, UITableViewData
         }
 
         return [String](Set<String>(currentMonthDates).intersection(allDates))
-        
     }
     
     func getCurrentMonthExpenses() -> [String] {
