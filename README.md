@@ -20,5 +20,5 @@ Several Demo Images:
     + View expenses as stacked bar chart for current week expenses and current month expenses.
   - Current Developing:
     + Experimenting different models in predicting future expenses:
-      ++ Linear Regression
-      ++ Long short-term memory
+        + Linear Regression
+        + Long short-term memory
