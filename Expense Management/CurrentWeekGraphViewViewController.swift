@@ -10,7 +10,7 @@ import UIKit
 import Charts
 
 class CurrentWeekGraphViewViewController: UIViewController {
-
+    
     @IBOutlet weak var currentWeekExpensesAmountLabel: UILabel!
     // MARK: Properties
     @IBOutlet weak var currentWeekExpensesBarChartView: BarChartView!
@@ -93,16 +93,19 @@ class CurrentWeekGraphViewViewController: UIViewController {
                     currentAmounts.append(0.0)
                 }
             }
-//            for currentExpenseKey in currentExpensesKeys {
-//                currentAmounts.append(currentExpensesDict[currentExpenseKey]!)
-//            }
             
+            // append all amount for current day to the current week array
             currentWeekAmounts.append(currentAmounts)
         }
+
         for i in 0 ..< currentWeekKeys.count {
             let currentBarChartEntry = BarChartDataEntry(x: Double(i), yValues: currentWeekAmounts[i])
             currentWeekBarChartEntries.append(currentBarChartEntry)
         }
+
+        let xAxisLabels: [String] = printDateFormat(datesList: currentWeekKeys)
+        currentWeekExpensesBarChartView.xAxis.labelCount = xAxisLabels.count
+        currentWeekExpensesBarChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xAxisLabels)
 
         let chartDataSet = BarChartDataSet(entries: currentWeekBarChartEntries, label: "")
         chartDataSet.colors = ChartColorTemplates.colorful()
@@ -111,6 +114,21 @@ class CurrentWeekGraphViewViewController: UIViewController {
         let data = BarChartData(dataSet: chartDataSet)
         currentWeekExpensesBarChartView.data = data
     }
+    
+    func printDateFormat(datesList: [String]) -> [String] {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MM:dd:yyyy"
+        let dateFormatterRes = DateFormatter()
+        dateFormatterRes.dateFormat = "EEEE"
+
+        var datesRes: [String] = []
+        for date in datesList {
+            datesRes.append(dateFormatterRes.string(from: dateFormatter.date(from: date)!))
+        }
+        
+        return datesRes
+    }
+
     /*
     // MARK: - Navigation
 

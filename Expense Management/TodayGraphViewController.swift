@@ -66,7 +66,6 @@ class TodayGraphViewController: UIViewController {
 
         // setup the view
         let chartDataSet = BarChartDataSet(entries: todayBarChartEntry, label: "Expenses Types")
-        print(xs)
         let chartData = BarChartData()
         chartData.addDataSet(chartDataSet)
         todayExpensesBarChartView.data = chartData
