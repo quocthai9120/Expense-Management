@@ -10,6 +10,15 @@ Several Demo Images:
     + View details of Today/This Week/This Month expenses.
     + Update balance to the app.
   - Current Developing:
-    + View expenses as line charts.
+    + View expenses as bar charts.
   - Future Research:
     + Implement a Machine Learning model to predict future expenses.
+
+* UPDATE JULY, 2019:
+  - Recent added functions:
+    + View expenses as bar chart for today expenses.
+    + View expenses as stacked bar chart for current week expenses and current month expenses.
+  - Current Developing:
+    + Experimenting different models in predicting future expenses:
+      . Linear Regression
+      . Long short-term memory
