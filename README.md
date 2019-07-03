@@ -10,7 +10,7 @@ Several Demo Images:
     + View details of Today/This Week/This Month expenses.
     + Update balance to the app.
   - Current Developing:
-    + View expenses as bar charts.
+    + View expenses as charts.
   - Future Research:
     + Implement a Machine Learning model to predict future expenses.
 
