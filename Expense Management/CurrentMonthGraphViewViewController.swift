@@ -11,10 +11,10 @@ import Charts
 
 class CurrentMonthGraphViewViewController: UIViewController {
 
-    @IBOutlet weak var currentMonthExpensesAmountLabel: UILabel!
     // MARK: Properties
-    @IBOutlet weak var currentMonthExpensesBarChartView: BarChartView!
-
+    @IBOutlet weak var currentMonthExpensesAmountLabel: UILabel!
+    @IBOutlet weak var currentMonthExpensesCombinedChartView: CombinedChartView!
+    
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,22 +72,26 @@ class CurrentMonthGraphViewViewController: UIViewController {
         let currentMonthKeys: [String] = Array(currentMonthExpensesType.keys)
         var allCurrentMonthExpenseTypes: Set<String> = []
         var currentMonthAmounts = [[Double]]()
-        
-        // get all expenses type for current Week
+        var totalDailyExpenses: [Double] = []
+
+        // get all expenses type for current month
         for day in currentMonthKeys {
             let currentExpensesDict = currentMonthExpensesType[day]!
             allCurrentMonthExpenseTypes = allCurrentMonthExpenseTypes.union(Set(currentExpensesDict.keys))
         }
         
-        // get all amounts into nested-array
+        // get all amounts into nested-array and compute total daily expenses
         for day in currentMonthKeys {
+            var totalExpensesCurrentDay: Double = 0.0
             var currentAmounts = [Double]()
             let currentExpensesDict = currentMonthExpensesType[day]!
             let currentExpensesKeys = Set(currentExpensesDict.keys)
             
             for expenseType in allCurrentMonthExpenseTypes {
                 if currentExpensesKeys.contains(expenseType) {
-                    currentAmounts.append(currentExpensesDict[expenseType]!)
+                    let amount: Double = currentExpensesDict[expenseType]!
+                    currentAmounts.append(amount)
+                    totalExpensesCurrentDay += amount
                 } else {
                     currentAmounts.append(0.0)
                 }
@@ -95,6 +99,9 @@ class CurrentMonthGraphViewViewController: UIViewController {
             
             // append all amount for current day to the current week array
             currentMonthAmounts.append(currentAmounts)
+
+            // append current day expenses amount to totalDailyExpenses
+            totalDailyExpenses.append(totalExpensesCurrentDay)
         }
         
         for i in 0 ..< currentMonthKeys.count {
@@ -104,25 +111,40 @@ class CurrentMonthGraphViewViewController: UIViewController {
         
         // set x_axis customizations
         let xAxisLabels: [String] = printDateFormat(datesList: currentMonthKeys)
-        currentMonthExpensesBarChartView.xAxis.labelCount = xAxisLabels.count
-        currentMonthExpensesBarChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xAxisLabels)
-        currentMonthExpensesBarChartView.xAxis.granularity = 1
-        currentMonthExpensesBarChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
+        currentMonthExpensesCombinedChartView.xAxis.labelCount = xAxisLabels.count
+        currentMonthExpensesCombinedChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xAxisLabels)
+        currentMonthExpensesCombinedChartView.xAxis.granularity = 1
+        currentMonthExpensesCombinedChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
         
         // hide all grids
-        currentMonthExpensesBarChartView.xAxis.drawGridLinesEnabled = false
-        currentMonthExpensesBarChartView.rightAxis.drawGridLinesEnabled = false
-        currentMonthExpensesBarChartView.leftAxis.drawGridLinesEnabled = false
+        currentMonthExpensesCombinedChartView.xAxis.drawGridLinesEnabled = false
+        currentMonthExpensesCombinedChartView.rightAxis.drawGridLinesEnabled = false
+        currentMonthExpensesCombinedChartView.leftAxis.drawGridLinesEnabled = false
         
-        let chartDataSet = BarChartDataSet(entries: currentMonthBarChartEntries, label: "")
-        chartDataSet.colors = ChartColorTemplates.colorful()
-        chartDataSet.stackLabels = Array(allCurrentMonthExpenseTypes)
-        chartDataSet.drawValuesEnabled = false
-        let data = BarChartData(dataSet: chartDataSet)
-        currentMonthExpensesBarChartView.data = data
+        let barChartDataSet = BarChartDataSet(entries: currentMonthBarChartEntries, label: "")
+        barChartDataSet.colors = ChartColorTemplates.colorful()
+        barChartDataSet.stackLabels = Array(allCurrentMonthExpenseTypes)
+        barChartDataSet.drawValuesEnabled = false
+
+        // set up line data
+        var lineChartEntries = [ChartDataEntry]()
+        for i in 0 ..< currentMonthKeys.count {
+            let currentLineChartEntry = ChartDataEntry(x: Double(i), y: totalDailyExpenses[i])
+            lineChartEntries.append(currentLineChartEntry)
+        }
         
-        currentMonthExpensesBarChartView.noDataText = "No expense to display!"
-        currentMonthExpensesBarChartView.animate(xAxisDuration: 0.5, yAxisDuration: 1.0)
+        let lineChartDataSet = LineChartDataSet(entries: lineChartEntries, label: "Daily Total Expenses")
+        
+        // setup combined data
+        let data: CombinedChartData = CombinedChartData(dataSets: [barChartDataSet, lineChartDataSet])
+        data.barData = BarChartData(dataSet: barChartDataSet)
+        data.lineData = LineChartData(dataSet: lineChartDataSet)
+        currentMonthExpensesCombinedChartView.data = data
+
+        
+        currentMonthExpensesCombinedChartView.noDataText = "No expense to display!"
+        currentMonthExpensesCombinedChartView.animate(xAxisDuration: 0.5, yAxisDuration: 1.0)
+        
     }
     
     func printDateFormat(datesList: [String]) -> [String] {

@@ -791,7 +791,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnC-6s-9cA" customClass="BarChartView" customModule="Charts">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnC-6s-9cA" customClass="CombinedChartView" customModule="Charts">
                                 <rect key="frame" x="10" y="303.66666666666674" width="394" height="418.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -847,7 +847,7 @@
                     </view>
                     <connections>
                         <outlet property="currentWeekExpensesAmountLabel" destination="8s4-3V-8Ur" id="PSj-Eq-d1a"/>
-                        <outlet property="currentWeekExpensesBarChartView" destination="fnC-6s-9cA" id="jge-w1-xiM"/>
+                        <outlet property="currentWeekExpensesCombinedChartView" destination="fnC-6s-9cA" id="Jln-OY-5rX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40v-pO-jDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -862,7 +862,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUQ-AK-bFR" customClass="BarChartView" customModule="Charts">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUQ-AK-bFR" customClass="CombinedChartView" customModule="Charts">
                                 <rect key="frame" x="10" y="303.66666666666674" width="394" height="418.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -918,7 +918,7 @@
                     </view>
                     <connections>
                         <outlet property="currentMonthExpensesAmountLabel" destination="nlb-JU-xie" id="9fF-aZ-ozP"/>
-                        <outlet property="currentMonthExpensesBarChartView" destination="UUQ-AK-bFR" id="uqf-0u-Ndv"/>
+                        <outlet property="currentMonthExpensesCombinedChartView" destination="UUQ-AK-bFR" id="eLT-Iq-vXU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZE8-08-JVM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -927,7 +927,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aBd-8a-F2r"/>
         <segue reference="Kct-oR-152"/>
         <segue reference="PZ6-dS-fGB"/>
         <segue reference="gQP-Ib-j9A"/>

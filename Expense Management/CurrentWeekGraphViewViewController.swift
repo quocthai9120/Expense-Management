@@ -12,8 +12,8 @@ import Charts
 class CurrentWeekGraphViewViewController: UIViewController {
     
     @IBOutlet weak var currentWeekExpensesAmountLabel: UILabel!
+    @IBOutlet weak var currentWeekExpensesCombinedChartView: CombinedChartView!
     // MARK: Properties
-    @IBOutlet weak var currentWeekExpensesBarChartView: BarChartView!
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -71,8 +71,10 @@ class CurrentWeekGraphViewViewController: UIViewController {
     func currentWeekChartInit(currentWeekExpensesType: [String : [String : Double]]) {
         var currentWeekBarChartEntries: [BarChartDataEntry] = []
         let currentWeekKeys: [String] = Array(currentWeekExpensesType.keys)
+        print(currentWeekKeys)
         var allCurrentWeekExpenseTypes: Set<String> = []
         var currentWeekAmounts = [[Double]]()
+        var totalDailyExpenses: [Double] = []
         
         // get all expenses type for current Week
         for day in currentWeekKeys {
@@ -80,15 +82,18 @@ class CurrentWeekGraphViewViewController: UIViewController {
             allCurrentWeekExpenseTypes = allCurrentWeekExpenseTypes.union(Set(currentExpensesDict.keys))
         }
 
-        // get all amounts into nested-array
+        // get all amounts into nested-array and compute total daily expenses
         for day in currentWeekKeys {
+            var totalExpensesCurrentDay: Double = 0.0
             var currentAmounts = [Double]()
             let currentExpensesDict = currentWeekExpensesType[day]!
             let currentExpensesKeys = Set(currentExpensesDict.keys)
 
             for expenseType in allCurrentWeekExpenseTypes {
                 if currentExpensesKeys.contains(expenseType) {
-                    currentAmounts.append(currentExpensesDict[expenseType]!)
+                    let amount: Double = currentExpensesDict[expenseType]!
+                    currentAmounts.append(amount)
+                    totalExpensesCurrentDay += amount
                 } else {
                     currentAmounts.append(0.0)
                 }
@@ -96,6 +101,9 @@ class CurrentWeekGraphViewViewController: UIViewController {
             
             // append all amount for current day to the current week array
             currentWeekAmounts.append(currentAmounts)
+            
+            // append current day expenses amount to totalDailyExpenses
+            totalDailyExpenses.append(totalExpensesCurrentDay)
         }
 
         for i in 0 ..< currentWeekKeys.count {
@@ -105,25 +113,37 @@ class CurrentWeekGraphViewViewController: UIViewController {
 
         // set x_axis customizations
         let xAxisLabels: [String] = printDateFormat(datesList: currentWeekKeys)
-        currentWeekExpensesBarChartView.xAxis.labelCount = xAxisLabels.count
-        currentWeekExpensesBarChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xAxisLabels)
-        currentWeekExpensesBarChartView.xAxis.granularity = 1
-        currentWeekExpensesBarChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
+        currentWeekExpensesCombinedChartView.xAxis.labelCount = xAxisLabels.count
+        currentWeekExpensesCombinedChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xAxisLabels)
+        currentWeekExpensesCombinedChartView.xAxis.granularity = 1
+        currentWeekExpensesCombinedChartView.xAxis.labelPosition = XAxis.LabelPosition.bottom
         
         // hide all grids
-        currentWeekExpensesBarChartView.xAxis.drawGridLinesEnabled = false
-        currentWeekExpensesBarChartView.rightAxis.drawGridLinesEnabled = false
-        currentWeekExpensesBarChartView.leftAxis.drawGridLinesEnabled = false
+        currentWeekExpensesCombinedChartView.xAxis.drawGridLinesEnabled = false
+        currentWeekExpensesCombinedChartView.rightAxis.drawGridLinesEnabled = false
+        currentWeekExpensesCombinedChartView.leftAxis.drawGridLinesEnabled = false
 
-        let chartDataSet = BarChartDataSet(entries: currentWeekBarChartEntries, label: "")
-        chartDataSet.colors = ChartColorTemplates.colorful()
-        chartDataSet.stackLabels = Array(allCurrentWeekExpenseTypes)
-        chartDataSet.drawValuesEnabled = false
-        let data = BarChartData(dataSet: chartDataSet)
-        currentWeekExpensesBarChartView.data = data
+        let barChartDataSet = BarChartDataSet(entries: currentWeekBarChartEntries, label: "")
+        barChartDataSet.colors = ChartColorTemplates.colorful()
+        barChartDataSet.stackLabels = Array(allCurrentWeekExpenseTypes)
+        barChartDataSet.drawValuesEnabled = false
         
-        currentWeekExpensesBarChartView.noDataText = "No expense to display!"
-        currentWeekExpensesBarChartView.animate(xAxisDuration: 0.5, yAxisDuration: 1.0)
+        // set up line data
+        var lineChartEntries = [ChartDataEntry]()
+        for i in 0 ..< currentWeekKeys.count {
+            let currentLineChartEntry = ChartDataEntry(x: Double(i), y: totalDailyExpenses[i])
+            lineChartEntries.append(currentLineChartEntry)
+        }
+        
+        let lineChartDataSet = LineChartDataSet(entries: lineChartEntries, label: "Daily Total Expenses")
+        
+        // setup combined data
+        let data: CombinedChartData = CombinedChartData(dataSets: [barChartDataSet, lineChartDataSet])
+        data.barData = BarChartData(dataSet: barChartDataSet)
+        data.lineData = LineChartData(dataSet: lineChartDataSet)
+        currentWeekExpensesCombinedChartView.data = data
+        
+        currentWeekExpensesCombinedChartView.animate(xAxisDuration: 0.5, yAxisDuration: 1.0)
     }
     
     func printDateFormat(datesList: [String]) -> [String] {
