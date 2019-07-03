@@ -11,7 +11,7 @@ import UIKit
 class TrackCurrentWeekExpensesViewController: UIViewController, UITableViewDataSource {
     
     // MARK: Global variables
-    var currentWeekExpensesAmount: Double = 0
+    static var currentWeekExpensesAmount: Double = 0
     private var data: [String] = []
 
     // MARK: Properties
@@ -27,7 +27,7 @@ class TrackCurrentWeekExpensesViewController: UIViewController, UITableViewDataS
         }
         // Do any additional setup after loading the view.
         tableView.dataSource = self
-        currentWeekExpensesAmountLabel.text = "$" + String(currentWeekExpensesAmount)
+        currentWeekExpensesAmountLabel.text = "$" + String(TrackCurrentWeekExpensesViewController.currentWeekExpensesAmount)
     }
     
     // MARK: TableView methods
@@ -90,17 +90,18 @@ class TrackCurrentWeekExpensesViewController: UIViewController, UITableViewDataS
     func getCurrentWeekExpenses() -> [String] {
         let currentWeekKeys: [String] = getCurrentWeekKeys()
         var totalExpenses = [String]()
+        var amount: Double = 0
         
         for date in currentWeekKeys {
             if let currentDayExpenses = ViewController.GlobalVariables.dates[date] {
                 for expense in currentDayExpenses {
                     let expenseName = Array(expense.keys)[0]
                     totalExpenses.append(expenseName + " - $" + String(expense[expenseName]!))
-                    currentWeekExpensesAmount += expense[expenseName]!
+                    amount += expense[expenseName]!
                 }
             }
         }
-
+        TrackCurrentWeekExpensesViewController.currentWeekExpensesAmount = amount
         return totalExpenses
     }
 

@@ -11,7 +11,7 @@ import UIKit
 class TrackCurrentMonthExpensesViewController: UIViewController, UITableViewDataSource {
 
     // MARK: Global variables
-    var currentMonthExpensesAmount: Double = 0
+    static var currentMonthExpensesAmount: Double = 0
     private var data: [String] = []
 
     // MARK: Properties
@@ -26,7 +26,7 @@ class TrackCurrentMonthExpensesViewController: UIViewController, UITableViewData
         }
         // Do any additional setup after loading the view.
         tableView.dataSource = self
-        currentMonthExpensesAmountLabel.text = "$" + String(currentMonthExpensesAmount)
+        currentMonthExpensesAmountLabel.text = "$" + String(TrackCurrentMonthExpensesViewController.currentMonthExpensesAmount)
     }
 
     // MARK: TableView methods
@@ -88,16 +88,19 @@ class TrackCurrentMonthExpensesViewController: UIViewController, UITableViewData
     func getCurrentMonthExpenses() -> [String] {
         let currentMonthKeys: [String] = getCurrentMonthKeys()
         var totalExpenses = [String]()
+        var amount: Double = 0
         
         for date in currentMonthKeys {
             if let currentDayExpenses = ViewController.GlobalVariables.dates[date] {
                 for expense in currentDayExpenses {
                     let expenseName = Array(expense.keys)[0]
                     totalExpenses.append(expenseName + " - $" + String(expense[expenseName]!))
-                    currentMonthExpensesAmount += expense[expenseName]!
+                    amount += expense[expenseName]!
                 }
             }
         }
+        
+        TrackCurrentMonthExpensesViewController.currentMonthExpensesAmount = amount
         
         return totalExpenses
     }

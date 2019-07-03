@@ -569,6 +569,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUw-wq-MJy">
+                                <rect key="frame" x="10" y="742" width="394" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Expenses Today" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cH3-xz-Eaw">
+                                        <rect key="frame" x="0.0" y="0.0" width="197" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZI-Cn-QHZ">
+                                        <rect key="frame" x="197" y="0.0" width="197" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -577,16 +594,21 @@
                             <constraint firstItem="75v-HR-3OM" firstAttribute="top" secondItem="fff-76-2gj" secondAttribute="bottom" constant="80" id="7lc-oV-nHH"/>
                             <constraint firstItem="75v-HR-3OM" firstAttribute="centerX" secondItem="b9J-hu-qo4" secondAttribute="centerX" id="7qu-lF-6uv"/>
                             <constraint firstItem="gTH-6c-Ap3" firstAttribute="trailing" secondItem="wOm-gC-HuB" secondAttribute="trailing" id="AHF-bB-gWp"/>
+                            <constraint firstItem="gTH-6c-Ap3" firstAttribute="trailing" secondItem="BUw-wq-MJy" secondAttribute="trailing" constant="10" id="CmU-dk-3bm"/>
+                            <constraint firstItem="75v-HR-3OM" firstAttribute="top" secondItem="BUw-wq-MJy" secondAttribute="bottom" constant="10" id="I8W-Di-xoq"/>
                             <constraint firstItem="gTH-6c-Ap3" firstAttribute="trailing" secondItem="fff-76-2gj" secondAttribute="trailing" constant="10" id="Suq-uJ-107"/>
+                            <constraint firstItem="BUw-wq-MJy" firstAttribute="leading" secondItem="gTH-6c-Ap3" secondAttribute="leading" constant="10" id="jCv-Qb-1Bi"/>
                             <constraint firstItem="wOm-gC-HuB" firstAttribute="top" secondItem="gTH-6c-Ap3" secondAttribute="top" constant="100" id="rFv-5P-ojq"/>
                             <constraint firstItem="fff-76-2gj" firstAttribute="leading" secondItem="gTH-6c-Ap3" secondAttribute="leading" constant="10" id="rLj-yU-bDU"/>
                             <constraint firstItem="fff-76-2gj" firstAttribute="top" secondItem="wOm-gC-HuB" secondAttribute="bottom" constant="90" id="tD6-D0-Y5y"/>
                             <constraint firstItem="wOm-gC-HuB" firstAttribute="centerX" secondItem="b9J-hu-qo4" secondAttribute="centerX" id="tGQ-Rt-T0J"/>
+                            <constraint firstItem="BUw-wq-MJy" firstAttribute="top" secondItem="fff-76-2gj" secondAttribute="bottom" constant="20" id="ykR-ci-xNj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gTH-6c-Ap3"/>
                     </view>
                     <connections>
                         <outlet property="todayExpensesBarChartView" destination="fff-76-2gj" id="6NR-qC-jGP"/>
+                        <outlet property="totalExpensesTodayLabel" destination="JZI-Cn-QHZ" id="1C2-3h-e2M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RfK-ZB-QiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -786,9 +808,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MIi-2R-OIn">
+                                <rect key="frame" x="10" y="742" width="394" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Expenses This Week" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XzF-DC-Ckc">
+                                        <rect key="frame" x="0.0" y="0.0" width="197" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8s4-3V-8Ur">
+                                        <rect key="frame" x="197" y="0.0" width="197" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="MIi-2R-OIn" firstAttribute="leading" secondItem="KTg-ow-F6M" secondAttribute="leading" constant="10" id="2dK-UY-BFA"/>
                             <constraint firstItem="7Ht-ma-ANc" firstAttribute="top" secondItem="fnC-6s-9cA" secondAttribute="bottom" constant="80" id="B2Z-sF-arp"/>
                             <constraint firstItem="iBA-6v-SW3" firstAttribute="top" secondItem="KTg-ow-F6M" secondAttribute="top" constant="100" id="B8y-51-xyL"/>
                             <constraint firstItem="KTg-ow-F6M" firstAttribute="trailing" secondItem="fnC-6s-9cA" secondAttribute="trailing" constant="10" id="CdP-SI-vmg"/>
@@ -797,12 +837,16 @@
                             <constraint firstItem="7Ht-ma-ANc" firstAttribute="bottom" secondItem="KTg-ow-F6M" secondAttribute="bottom" constant="-30" id="bXv-bW-IuE"/>
                             <constraint firstItem="iBA-6v-SW3" firstAttribute="leading" secondItem="KTg-ow-F6M" secondAttribute="leading" id="eIs-bp-i6P"/>
                             <constraint firstItem="7Ht-ma-ANc" firstAttribute="centerX" secondItem="GZp-3K-nbk" secondAttribute="centerX" id="fAD-Tw-vRk"/>
+                            <constraint firstItem="MIi-2R-OIn" firstAttribute="top" secondItem="fnC-6s-9cA" secondAttribute="bottom" constant="20" id="mOI-Kc-BPs"/>
                             <constraint firstItem="KTg-ow-F6M" firstAttribute="trailing" secondItem="iBA-6v-SW3" secondAttribute="trailing" id="oJW-3e-4ob"/>
                             <constraint firstItem="fnC-6s-9cA" firstAttribute="leading" secondItem="KTg-ow-F6M" secondAttribute="leading" constant="10" id="pyG-4j-eNi"/>
+                            <constraint firstItem="KTg-ow-F6M" firstAttribute="trailing" secondItem="MIi-2R-OIn" secondAttribute="trailing" constant="10" id="svd-wc-dTb"/>
+                            <constraint firstItem="7Ht-ma-ANc" firstAttribute="top" secondItem="MIi-2R-OIn" secondAttribute="bottom" constant="10" id="ukn-yU-QbN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KTg-ow-F6M"/>
                     </view>
                     <connections>
+                        <outlet property="currentWeekExpensesAmountLabel" destination="8s4-3V-8Ur" id="PSj-Eq-d1a"/>
                         <outlet property="currentWeekExpensesBarChartView" destination="fnC-6s-9cA" id="jge-w1-xiM"/>
                     </connections>
                 </viewController>
@@ -835,10 +879,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBQ-YK-Fk3">
+                                <rect key="frame" x="10" y="742" width="394" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Expenses This Month" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LJ-Zd-9IP">
+                                        <rect key="frame" x="0.0" y="0.0" width="197" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlb-JU-xie">
+                                        <rect key="frame" x="197" y="0.0" width="197" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="cBQ-YK-Fk3" firstAttribute="top" secondItem="UUQ-AK-bFR" secondAttribute="bottom" constant="20" id="7eS-Ek-YWG"/>
+                            <constraint firstItem="GqJ-ET-vS9" firstAttribute="trailing" secondItem="cBQ-YK-Fk3" secondAttribute="trailing" constant="10" id="CVm-54-a36"/>
                             <constraint firstItem="oUS-GK-GPn" firstAttribute="bottom" secondItem="GqJ-ET-vS9" secondAttribute="bottom" constant="-30" id="FEN-6A-nFt"/>
+                            <constraint firstItem="oUS-GK-GPn" firstAttribute="top" secondItem="cBQ-YK-Fk3" secondAttribute="bottom" constant="10" id="LMJ-23-Mqx"/>
+                            <constraint firstItem="cBQ-YK-Fk3" firstAttribute="leading" secondItem="GqJ-ET-vS9" secondAttribute="leading" constant="10" id="Whc-yg-u1F"/>
                             <constraint firstItem="PGf-VR-PaD" firstAttribute="leading" secondItem="GqJ-ET-vS9" secondAttribute="leading" id="ZOo-OA-C5d"/>
                             <constraint firstItem="oUS-GK-GPn" firstAttribute="top" secondItem="UUQ-AK-bFR" secondAttribute="bottom" constant="80" id="afO-L3-8cd"/>
                             <constraint firstItem="oUS-GK-GPn" firstAttribute="centerX" secondItem="8Fz-z4-FnD" secondAttribute="centerX" id="cP8-Ma-e5P"/>
@@ -852,6 +917,7 @@
                         <viewLayoutGuide key="safeArea" id="GqJ-ET-vS9"/>
                     </view>
                     <connections>
+                        <outlet property="currentMonthExpensesAmountLabel" destination="nlb-JU-xie" id="9fF-aZ-ozP"/>
                         <outlet property="currentMonthExpensesBarChartView" destination="UUQ-AK-bFR" id="uqf-0u-Ndv"/>
                     </connections>
                 </viewController>
@@ -864,7 +930,7 @@
         <segue reference="aBd-8a-F2r"/>
         <segue reference="Kct-oR-152"/>
         <segue reference="PZ6-dS-fGB"/>
-        <segue reference="qfW-y4-5da"/>
+        <segue reference="gQP-Ib-j9A"/>
         <segue reference="6rk-XP-hJO"/>
         <segue reference="dl8-ig-QSB"/>
     </inferredMetricsTieBreakers>

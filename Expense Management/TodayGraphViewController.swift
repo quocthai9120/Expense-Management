@@ -13,13 +13,15 @@ class TodayGraphViewController: UIViewController {
 
     // MARK: Properties
     @IBOutlet weak var todayExpensesBarChartView: BarChartView!
-
+    @IBOutlet weak var totalExpensesTodayLabel: UILabel!
+    
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let todayExpensesType = ViewController.GlobalVariables.expensesType[getCurrentTime()] {
             todayBarChartInit(expensesType: todayExpensesType)
+            totalExpensesTodayLabel.text = "$" + String(TrackTodayExpensesViewController.todayTotalExpensesAmount)
         }
         // Do any additional setup after loading the view.
     }
@@ -60,11 +62,11 @@ class TodayGraphViewController: UIViewController {
         todayExpensesBarChartView.rightAxis.drawGridLinesEnabled = false
         todayExpensesBarChartView.leftAxis.drawGridLinesEnabled = false
         
-        todayExpensesBarChartView.legend.font = UIFont(name: "Arial", size: 14)!
+        todayExpensesBarChartView.legend.font = UIFont.systemFont(ofSize: 14.0, weight: UIFont.Weight.semibold)
 
+        // setup the view
         let chartDataSet = BarChartDataSet(entries: todayBarChartEntry, label: "Expenses Types")
         print(xs)
-
         let chartData = BarChartData()
         chartData.addDataSet(chartDataSet)
         todayExpensesBarChartView.data = chartData

@@ -11,6 +11,7 @@ import Charts
 
 class CurrentMonthGraphViewViewController: UIViewController {
 
+    @IBOutlet weak var currentMonthExpensesAmountLabel: UILabel!
     // MARK: Properties
     @IBOutlet weak var currentMonthExpensesBarChartView: BarChartView!
 
@@ -19,6 +20,7 @@ class CurrentMonthGraphViewViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        currentMonthExpensesAmountLabel.text = "$" + String(TrackCurrentMonthExpensesViewController.currentMonthExpensesAmount)
     }
     
 

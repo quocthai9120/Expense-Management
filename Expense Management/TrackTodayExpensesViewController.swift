@@ -10,7 +10,7 @@ import UIKit
 import Charts
 
 class TrackTodayExpensesViewController: UIViewController, UITableViewDataSource {
-    var todayTotalExpensesAmount: Double = 0
+    static var todayTotalExpensesAmount: Double = 0
 
     @IBOutlet weak var todayTotalExpensesAmountLabel: UILabel!
 
@@ -26,7 +26,7 @@ class TrackTodayExpensesViewController: UIViewController, UITableViewDataSource 
         }
         // Do any additional setup after loading the view.
         tableView.dataSource = self
-        todayTotalExpensesAmountLabel.text = "$" + String(todayTotalExpensesAmount)
+        todayTotalExpensesAmountLabel.text = "$" + String(TrackTodayExpensesViewController.todayTotalExpensesAmount)
     }
     
 
@@ -76,6 +76,7 @@ class TrackTodayExpensesViewController: UIViewController, UITableViewDataSource 
     func getTodayExpenses() -> [String] {
         let today: String = getCurrentTime()
         let tExpenses = ViewController.GlobalVariables.dates[today]
+        var amount: Double = 0
         
         var todayExpensesItems = [String]()
         if tExpenses != nil {
@@ -83,10 +84,10 @@ class TrackTodayExpensesViewController: UIViewController, UITableViewDataSource 
             for dict in todayExpenses {
                 let key = Array(dict.keys)[0]
                 todayExpensesItems.append(key + " - $" + String(dict[key]!))
-                todayTotalExpensesAmount += dict[key]!
+                amount += dict[key]!
             }
         }
-
+        TrackTodayExpensesViewController.todayTotalExpensesAmount = amount
         return todayExpensesItems
     }
 
