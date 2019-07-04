@@ -20,5 +20,5 @@ Several Demo Images:
     + View expenses as combined chart (stacked bar chart + line chart) for current week expenses and current month expenses.
   - Current Developing:
     + Experimenting different models in predicting future expenses:
-        + Linear Regression
+        + Linear Regression (Details: https://github.com/quocthai9120/ExpensesManagement---Experimenting-different-ML-models-to-predict-future-expenses)
         + Long short-term memory
