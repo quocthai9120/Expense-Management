@@ -19,6 +19,4 @@ Several Demo Images:
     + View expenses as bar chart for today expenses.
     + View expenses as combined chart (stacked bar chart + line chart) for current week expenses and current month expenses.
   - Current Developing:
-    + Experimenting different models in predicting future expenses: [Currently not working cause CoreML does not allow to re-train in the runtime]
-        + Linear Regression 
-        + Long short-term memory
+    + Experimenting different models in predicting future expenses
