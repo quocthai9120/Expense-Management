@@ -20,4 +20,4 @@ Several Demo Images:
     + View expenses as combined chart (stacked bar chart + line chart) for current week expenses and current month expenses.
   - Current Developing:
     + Experimenting different models in predicting future expenses
-    + Analyzing to use the database as a temporarily alternative solution for the problem of CoreML does not allow re-train model in the runtime.
+    + Analyzing alternative solutions for the problem of CoreML does not allow re-train model in the runtime.
