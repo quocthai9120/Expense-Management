@@ -66,11 +66,13 @@ class PredictExpensesViewController: UIViewController {
 
     func plotExpensesLineChart(sortedDateKeys: [String], totalExpenses: [String : Double]) {
         var scatterDataEntries: [ChartDataEntry] = []
+        var xs: [Double] = []
         for i in 0 ..< totalExpenses.count {
             let currentDayExpensesAmount: Double = totalExpenses[sortedDateKeys[i]]!
             if currentDayExpensesAmount != 0 {
                 let scatterDataEntry = ChartDataEntry(x: Double(i), y: currentDayExpensesAmount)
                 scatterDataEntries.append(scatterDataEntry)
+                xs.append(Double(i))
                 print(sortedDateKeys[i], totalExpenses[sortedDateKeys[i]]!)
             }
         }
@@ -81,7 +83,6 @@ class PredictExpensesViewController: UIViewController {
         data.scatterData = ScatterChartData(dataSet: scatterDataSet)
         expensesTrendingCombinedChartView.data = data
     }
-
     /*
     // MARK: - Navigation
 
