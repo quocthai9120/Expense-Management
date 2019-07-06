@@ -35,10 +35,8 @@ class CurrentWeekGraphViewViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MM:dd:yyyy"
         let calendar = Calendar.current
-        let currentWeekDayIndex = calendar.component(.weekday, from: Date()) - 1
+        let currentWeekDayIndex = calendar.component(.weekday, from: Date()) - 2
         var date = calendar.startOfDay(for: Date())
-        
-        let allDates = Set(ViewController.GlobalVariables.dates.keys)
         var currentWeekDates = [String]()
         
         let dateFormatterRes = DateFormatter()
@@ -51,9 +49,7 @@ class CurrentWeekGraphViewViewController: UIViewController {
             date = calendar.date(byAdding: Calendar.Component.day, value: -1, to: date)!
             currentWeekDates.append(dateFormatterRes.string(from: date))
         }
-        
-        return [String](Set<String>(currentWeekDates).intersection(allDates))
-        
+        return currentWeekDates.reversed()
     }
 
     func getCurrentWeekExpensesType() -> [String: [String : Double]] {
@@ -70,8 +66,7 @@ class CurrentWeekGraphViewViewController: UIViewController {
 
     func currentWeekChartInit(currentWeekExpensesType: [String : [String : Double]]) {
         var currentWeekBarChartEntries: [BarChartDataEntry] = []
-        let currentWeekKeys: [String] = Array(currentWeekExpensesType.keys)
-        print(currentWeekKeys)
+        let currentWeekKeys: [String] = getCurrentWeekKeys()
         var allCurrentWeekExpenseTypes: Set<String> = []
         var currentWeekAmounts = [[Double]]()
         var totalDailyExpenses: [Double] = []

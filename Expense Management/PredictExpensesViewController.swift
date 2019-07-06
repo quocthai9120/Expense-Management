@@ -7,15 +7,70 @@
 //
 
 import UIKit
+import Charts
 
 class PredictExpensesViewController: UIViewController {
 
+    // MARK: Properties
+    @IBOutlet weak var expensesTrendingCombinedChartView: CombinedChartView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        let dateKeys: [String] = Array(ViewController.GlobalVariables.dates.keys)
+        let dailyTotalExpenses: [String : Double] = getTotalExpenses(expensesType: ViewController.GlobalVariables.expensesType)
+        let sortedDateKeys: [String] = sortDate(dateKeys: dateKeys)
+        print(dailyTotalExpenses)
+        plotExpensesLineChart(sortedDateKeys: sortedDateKeys, totalExpenses: dailyTotalExpenses)
     }
     
+
+    // MARK: Supplemental Functions
+    func sortDate(dateKeys: [String]) -> [String] {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MM:dd:yyyy"
+        
+        var dateObjects: [Date] = []
+        
+        for dateKey in dateKeys {
+            dateObjects.append(dateFormatter.date(from: dateKey)!)
+        }
+        dateObjects.sort(){$0 < $1}
+        let dateFormatterRes = DateFormatter()
+        dateFormatterRes.dateFormat = "EEEE, MM:dd:yyyy"
+        
+        var sortedDateKeys: [String] = []
+
+        for date in dateObjects {
+            sortedDateKeys.append(dateFormatterRes.string(from: date))
+        }
+        
+        return sortedDateKeys
+    }
+
+    func getTotalExpenses(expensesType: [String : [String : Double]]) -> [String : Double] {
+        let dates: [String] = Array(expensesType.keys)
+        var totalExpenses: [String : Double] = [:]
+        
+        for date in dates {
+            let currentExpenses: [String : Double] = expensesType[date]!
+            var currentTotalExpenses: Double = 0.0
+
+            for type in Array(currentExpenses.keys) {
+                currentTotalExpenses += currentExpenses[type]!
+            }
+            totalExpenses.updateValue(currentTotalExpenses, forKey: date)
+        }
+        
+        return totalExpenses
+    }
+
+    func plotExpensesLineChart(sortedDateKeys: [String], totalExpenses: [String : Double]) {
+        var lineChartEntries = [ChartDataEntry]()
+        for date in sortedDateKeys {
+            print(date, totalExpenses[date]!)
+        }
+    }
 
     /*
     // MARK: - Navigation

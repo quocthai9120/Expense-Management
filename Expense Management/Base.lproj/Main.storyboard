@@ -636,7 +636,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2p-Bt-wM0">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2p-Bt-wM0" customClass="CombinedChartView" customModule="Charts">
                                 <rect key="frame" x="10" y="263.66666666666674" width="394" height="448.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -670,6 +670,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pVV-y4-6P5"/>
                     </view>
+                    <connections>
+                        <outlet property="expensesTrendingCombinedChartView" destination="P2p-Bt-wM0" id="KNh-Ym-8By"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hwz-Mj-KHP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -691,13 +694,13 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Q9i-Pb-xCf">
-                                <rect key="frame" x="20" y="387.66666666666669" width="374" height="121"/>
+                                <rect key="frame" x="20" y="372.33333333333331" width="374" height="151.33333333333331"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="axR-oW-Xsg">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="81"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="111.33333333333333"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DqA-QO-bNh">
-                                                <rect key="frame" x="0.0" y="0.0" width="187" height="81"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="111.33333333333333"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expense Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIC-Lf-C9i">
                                                         <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="20.333333333333332"/>
@@ -706,13 +709,19 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expense Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANa-bY-lsY">
-                                                        <rect key="frame" x="0.0" y="30.333333333333314" width="107" height="20.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="30.333333333333371" width="107" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date (Empty = Today)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iX-Aq-Obd">
+                                                        <rect key="frame" x="0.0" y="60.666666666666693" width="166.66666666666666" height="20.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount (in US Dollar)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUv-ox-Yab">
-                                                        <rect key="frame" x="0.0" y="60.666666666666636" width="166" height="20.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="91" width="166" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -720,10 +729,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FlI-wL-NFk">
-                                                <rect key="frame" x="187" y="0.0" width="187" height="81"/>
+                                                <rect key="frame" x="187" y="0.0" width="187" height="111.33333333333333"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Eg: Macbook Pro 15&quot; 2019" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U3X-xP-lqZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="27"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="28"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -732,7 +741,7 @@
                                                         </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Eg: Technologies" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ipo-OY-Y5Z">
-                                                        <rect key="frame" x="0.0" y="27" width="187" height="27"/>
+                                                        <rect key="frame" x="0.0" y="28" width="187" height="27.666666666666671"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -740,21 +749,24 @@
                                                             <action selector="expenseTypeTextInput:" destination="b9j-bn-gsS" eventType="editingDidEnd" id="cZq-yY-OsR"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Eg: 3078.9" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rk7-HA-MQC">
-                                                        <rect key="frame" x="0.0" y="54" width="187" height="27"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Eg: Sunday, 06:30:2019" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yY2-kD-xnH">
+                                                        <rect key="frame" x="0.0" y="55.666666666666686" width="187" height="28"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <action selector="expenseAmountTextInput:" destination="b9j-bn-gsS" eventType="editingDidEnd" id="yWf-RM-M2d"/>
-                                                        </connections>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Eg: 3078.9" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rk7-HA-MQC">
+                                                        <rect key="frame" x="0.0" y="83.666666666666686" width="187" height="27.666666666666671"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpf-Xs-vJb">
-                                        <rect key="frame" x="0.0" y="91" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="121.33333333333337" width="374" height="30"/>
                                         <state key="normal" title="Add Expense"/>
                                         <connections>
                                             <action selector="addExpenseButton:" destination="nr1-9C-j5V" eventType="touchUpInside" id="lCP-hi-MuL"/>
@@ -763,7 +775,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Expense" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIb-Hh-7fF" userLabel="Add New Expense Label">
-                                <rect key="frame" x="141.33333333333331" y="218" width="131.33333333333331" height="69.666666666666686"/>
+                                <rect key="frame" x="141.33333333333331" y="202.66666666666666" width="131.33333333333331" height="69.666666666666657"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -783,7 +795,8 @@
                         <viewLayoutGuide key="safeArea" id="AwN-xJ-xlu"/>
                     </view>
                     <connections>
-                        <outlet property="expenseAmountTextField" destination="rk7-HA-MQC" id="z8z-IX-4wN"/>
+                        <outlet property="dateTextField" destination="yY2-kD-xnH" id="BPf-8D-sZZ"/>
+                        <outlet property="expenseAmountTextField" destination="rk7-HA-MQC" id="der-I2-gBe"/>
                         <outlet property="expenseNameTextField" destination="U3X-xP-lqZ" id="KDC-tb-VIE"/>
                         <outlet property="expenseTypeTextField" destination="Ipo-OY-Y5Z" id="59Y-Cp-oyE"/>
                     </connections>
@@ -939,8 +952,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="Kct-oR-152"/>
         <segue reference="PZ6-dS-fGB"/>
-        <segue reference="gQP-Ib-j9A"/>
+        <segue reference="Hpj-I5-clt"/>
         <segue reference="6rk-XP-hJO"/>
-        <segue reference="yNz-24-hEK"/>
+        <segue reference="K9u-45-QmB"/>
     </inferredMetricsTieBreakers>
 </document>

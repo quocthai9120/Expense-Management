@@ -13,9 +13,8 @@ class AddNewExpenseViewController: UIViewController, UITextFieldDelegate {
 
     // MARKS: Properties
     @IBOutlet weak var expenseNameTextField: UITextField!
-    
     @IBOutlet weak var expenseTypeTextField: UITextField!
-    
+    @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var expenseAmountTextField: UITextField!
     
     override func viewDidLoad() {
@@ -107,28 +106,31 @@ class AddNewExpenseViewController: UIViewController, UITextFieldDelegate {
     @IBAction func addExpenseButton(_ sender: Any) {
         let expenseName: String = String(expenseNameTextField.text!)
         let expenseType: String = String(expenseTypeTextField.text!)
-        let amount = expenseAmountTextField.text
+        let amount: String = String(expenseAmountTextField.text!)
+        var inputDate = String(dateTextField.text!)
         
-        if let expenseAmount = Double(amount!) {
-            // add current date-expense to the dates dictionary
-            let today: String = getCurrentTime()
-            let todayExpenses = ViewController.GlobalVariables.dates[today]
-            if todayExpenses == nil {
-                ViewController.GlobalVariables.dates[today] = []
+        if let expenseAmount = Double(amount) {
+            if inputDate == "" {
+                inputDate = getCurrentTime()
             }
-            ViewController.GlobalVariables.dates[today]! += [[expenseName : expenseAmount]]
+            // add current date-expense to the dates dictionary
+            let inputDateExpenses = ViewController.GlobalVariables.dates[inputDate]
+            if inputDateExpenses == nil {
+                ViewController.GlobalVariables.dates[inputDate] = []
+            }
+            ViewController.GlobalVariables.dates[inputDate]! += [[expenseName : expenseAmount]]
             
             // add [date : [expenseType : Amount]]
-            let todayExpensesType = ViewController.GlobalVariables.expensesType[today]
-            if todayExpensesType == nil {
-                ViewController.GlobalVariables.expensesType[today] = [String : Double]()
+            let inputDateExpensesType = ViewController.GlobalVariables.expensesType[inputDate]
+            if inputDateExpensesType == nil {
+                ViewController.GlobalVariables.expensesType[inputDate] = [String : Double]()
             }
-            var currentExpense: Double? = ViewController.GlobalVariables.expensesType[today]![expenseType]
+            var currentExpense: Double? = ViewController.GlobalVariables.expensesType[inputDate]![expenseType]
             if currentExpense == nil {
                 currentExpense = 0
             }
-            ViewController.GlobalVariables.expensesType[today]!.updateValue(currentExpense! + expenseAmount, forKey: expenseType)
-            
+            ViewController.GlobalVariables.expensesType[inputDate]!.updateValue(currentExpense! + expenseAmount, forKey: expenseType)
+
             // update balance
             ViewController.GlobalVariables.balance -= expenseAmount
             
@@ -136,11 +138,6 @@ class AddNewExpenseViewController: UIViewController, UITextFieldDelegate {
             saveDates(dates: ViewController.GlobalVariables.dates)
             saveExpensesType(expensesType: ViewController.GlobalVariables.expensesType)
             saveBalance(balance: ViewController.GlobalVariables.balance)
-            
-            // print(ViewController.GlobalVariables.expensesType)
-            print("Balance:", ViewController.GlobalVariables.balance)
-            print("ExpensesType", ViewController.GlobalVariables.expensesType)
-            print(ViewController.GlobalVariables.dates)
         }
     }
     

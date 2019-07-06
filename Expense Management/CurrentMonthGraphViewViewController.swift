@@ -38,7 +38,6 @@ class CurrentMonthGraphViewViewController: UIViewController {
         let calendar = Calendar.current
         var date = calendar.startOfDay(for: Date())
         let currentDay: Int = calendar.component(.day, from: Date())
-        let allDates = Set(ViewController.GlobalVariables.dates.keys)
         var currentMonthDates = [String]()
         
         let dateFormatterRes = DateFormatter()
@@ -52,7 +51,7 @@ class CurrentMonthGraphViewViewController: UIViewController {
             currentMonthDates.append(dateFormatterRes.string(from: date))
         }
         
-        return [String](Set<String>(currentMonthDates).intersection(allDates))
+        return currentMonthDates.reversed()
     }
     
     func getCurrentMonthExpensesType() -> [String: [String : Double]] {
@@ -69,7 +68,7 @@ class CurrentMonthGraphViewViewController: UIViewController {
     
     func currentMonthChartInit(currentMonthExpensesType: [String : [String : Double]]) {
         var currentMonthBarChartEntries: [BarChartDataEntry] = []
-        let currentMonthKeys: [String] = Array(currentMonthExpensesType.keys)
+        let currentMonthKeys: [String] = getCurrentMonthKeys()
         var allCurrentMonthExpenseTypes: Set<String> = []
         var currentMonthAmounts = [[Double]]()
         var totalDailyExpenses: [Double] = []
