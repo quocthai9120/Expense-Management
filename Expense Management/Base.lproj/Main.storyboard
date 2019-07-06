@@ -694,7 +694,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Q9i-Pb-xCf">
-                                <rect key="frame" x="20" y="372.33333333333331" width="374" height="151.33333333333331"/>
+                                <rect key="frame" x="20" y="342.33333333333331" width="374" height="211.33333333333331"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="axR-oW-Xsg">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="111.33333333333333"/>
@@ -772,33 +772,68 @@
                                             <action selector="addExpenseButton:" destination="nr1-9C-j5V" eventType="touchUpInside" id="lCP-hi-MuL"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bp-k8-Bxm">
+                                        <rect key="frame" x="0.0" y="161.33333333333337" width="374" height="50"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Expense" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIb-Hh-7fF" userLabel="Add New Expense Label">
-                                <rect key="frame" x="141.33333333333331" y="202.66666666666666" width="131.33333333333331" height="69.666666666666657"/>
+                                <rect key="frame" x="141.33333333333331" y="172.66666666666666" width="131.33333333333331" height="69.666666666666657"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cqp-N8-dMf">
+                                <rect key="frame" x="20" y="581.33333333333337" width="374" height="120.66666666666663"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fill Empty Days in Most Recent 30 Days Expenses by $0/day" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGh-Ak-wmr">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="40.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8j-Qz-vgn">
+                                        <rect key="frame" x="0.0" y="40.666666666666629" width="374" height="30"/>
+                                        <state key="normal" title="Fill Expenses"/>
+                                        <connections>
+                                            <action selector="fillRecent30DaysExpensesAction:" destination="nr1-9C-j5V" eventType="touchUpInside" id="kk2-lL-vap"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sr3-En-YLJ">
+                                        <rect key="frame" x="0.0" y="70.666666666666629" width="374" height="50"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="lIb-Hh-7fF" firstAttribute="centerX" secondItem="7JQ-Cp-Per" secondAttribute="centerX" id="0w1-70-qbs"/>
                             <constraint firstItem="Q9i-Pb-xCf" firstAttribute="top" secondItem="lIb-Hh-7fF" secondAttribute="bottom" constant="100" id="1wB-MU-Cqn"/>
+                            <constraint firstItem="Stx-C7-1uJ" firstAttribute="top" secondItem="cqp-N8-dMf" secondAttribute="bottom" constant="100" id="3SI-gD-ust"/>
                             <constraint firstItem="Q9i-Pb-xCf" firstAttribute="leading" secondItem="AwN-xJ-xlu" secondAttribute="leading" constant="20" id="CWa-Tr-1Le"/>
                             <constraint firstItem="Stx-C7-1uJ" firstAttribute="bottom" secondItem="AwN-xJ-xlu" secondAttribute="bottom" constant="-30" id="G2E-fO-0YT"/>
                             <constraint firstItem="AwN-xJ-xlu" firstAttribute="trailing" secondItem="Q9i-Pb-xCf" secondAttribute="trailing" constant="20" id="VMw-B7-IVk"/>
                             <constraint firstItem="Q9i-Pb-xCf" firstAttribute="centerX" secondItem="7JQ-Cp-Per" secondAttribute="centerX" id="cMY-06-k85"/>
+                            <constraint firstItem="AwN-xJ-xlu" firstAttribute="trailing" secondItem="cqp-N8-dMf" secondAttribute="trailing" constant="20" id="qmU-wB-Wui"/>
+                            <constraint firstItem="cqp-N8-dMf" firstAttribute="leading" secondItem="AwN-xJ-xlu" secondAttribute="leading" constant="20" id="sSe-XD-csW"/>
                             <constraint firstItem="Stx-C7-1uJ" firstAttribute="centerX" secondItem="7JQ-Cp-Per" secondAttribute="centerX" id="vQL-gM-VkL"/>
                             <constraint firstItem="Q9i-Pb-xCf" firstAttribute="centerY" secondItem="7JQ-Cp-Per" secondAttribute="centerY" id="yb8-fl-lz5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AwN-xJ-xlu"/>
                     </view>
                     <connections>
+                        <outlet property="addExpenseStatusLabelField" destination="8bp-k8-Bxm" id="pAD-pa-LZM"/>
                         <outlet property="dateTextField" destination="yY2-kD-xnH" id="BPf-8D-sZZ"/>
                         <outlet property="expenseAmountTextField" destination="rk7-HA-MQC" id="der-I2-gBe"/>
                         <outlet property="expenseNameTextField" destination="U3X-xP-lqZ" id="KDC-tb-VIE"/>
                         <outlet property="expenseTypeTextField" destination="Ipo-OY-Y5Z" id="59Y-Cp-oyE"/>
+                        <outlet property="fillRecent30DaysExpenseLabelField" destination="Sr3-En-YLJ" id="z8K-cE-GhB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUf-cg-2yW" userLabel="First Responder" sceneMemberID="firstResponder"/>

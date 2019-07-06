@@ -16,6 +16,8 @@ class AddNewExpenseViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var expenseTypeTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var expenseAmountTextField: UITextField!
+    @IBOutlet weak var addExpenseStatusLabelField: UILabel!
+    @IBOutlet weak var fillRecent30DaysExpenseLabelField: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,36 @@ class AddNewExpenseViewController: UIViewController, UITextFieldDelegate {
         dateFormatterRes.dateFormat = "EEEE, MM:dd:yyyy"
 
         return dateFormatterRes.string(from: date)
+    }
+
+    // MARK: Supplemental functions
+    func fillRecent30Days() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MM:dd:yyyy"
+        let calendar = Calendar.current
+        var date = calendar.startOfDay(for: Date())
+        var recent30Days = [String]()
+        
+        let dateFormatterRes = DateFormatter()
+        dateFormatterRes.dateFormat = "EEEE, MM:dd:yyyy"
+        // add today expenses
+        recent30Days.append(dateFormatterRes.string(from: date))
+        
+        // add the remaining expenses
+        for _ in 1...30 {
+            date = calendar.date(byAdding: Calendar.Component.day, value: -1, to: date)!
+            recent30Days.append(dateFormatterRes.string(from: date))
+        }
+        
+        for day in recent30Days {
+            let currentExpenses = ViewController.GlobalVariables.dates[day]
+            if currentExpenses == nil {
+                ViewController.GlobalVariables.dates[day] = []
+                ViewController.GlobalVariables.expensesType[day] = [:]
+            }
+        }
+        saveDates(dates: ViewController.GlobalVariables.dates)
+        saveExpensesType(expensesType: ViewController.GlobalVariables.expensesType)
     }
 
     func saveDates(dates: [String : [[String : Double]]]) {
@@ -138,7 +170,16 @@ class AddNewExpenseViewController: UIViewController, UITextFieldDelegate {
             saveDates(dates: ViewController.GlobalVariables.dates)
             saveExpensesType(expensesType: ViewController.GlobalVariables.expensesType)
             saveBalance(balance: ViewController.GlobalVariables.balance)
+            
+            // Show result
+            addExpenseStatusLabelField.text = "Expense Added!"
+        } else {
+            addExpenseStatusLabelField.text = "Failed to add expense!"
         }
     }
     
+    @IBAction func fillRecent30DaysExpensesAction(_ sender: Any) {
+        fillRecent30Days()
+        fillRecent30DaysExpenseLabelField.text = "Expenses Filled!"
+    }
 }

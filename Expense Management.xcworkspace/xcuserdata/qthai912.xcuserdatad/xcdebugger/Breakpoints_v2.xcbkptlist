@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Expense Management/AddNewExpenseViewController.swift"
-            timestampString = "584093605.3955441"
+            timestampString = "584094985.166954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "addExpenseButton(_:)"
             landmarkType = "7">
          </BreakpointContent>

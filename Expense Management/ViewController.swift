@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         static var dates = [String : [[String : Double]]]()   //   map date to [[expenseName : amount]]
     }
     
-    // additional functions
+    // MARK: Supplemental functions
     func getDates() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Dates")
