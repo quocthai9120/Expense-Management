@@ -20,7 +20,6 @@ class PredictExpensesViewController: UIViewController {
         let dateKeys: [String] = Array(ViewController.GlobalVariables.dates.keys)
         let dailyTotalExpenses: [String : Double] = getTotalExpenses(expensesType: ViewController.GlobalVariables.expensesType)
         let sortedDateKeys: [String] = sortDate(dateKeys: dateKeys)
-        print(dailyTotalExpenses)
         plotExpensesLineChart(sortedDateKeys: sortedDateKeys, totalExpenses: dailyTotalExpenses)
     }
     
@@ -66,10 +65,21 @@ class PredictExpensesViewController: UIViewController {
     }
 
     func plotExpensesLineChart(sortedDateKeys: [String], totalExpenses: [String : Double]) {
-        var lineChartEntries = [ChartDataEntry]()
-        for date in sortedDateKeys {
-            print(date, totalExpenses[date]!)
+        var scatterDataEntries: [ChartDataEntry] = []
+        for i in 0 ..< totalExpenses.count {
+            let currentDayExpensesAmount: Double = totalExpenses[sortedDateKeys[i]]!
+            if currentDayExpensesAmount != 0 {
+                let scatterDataEntry = ChartDataEntry(x: Double(i), y: currentDayExpensesAmount)
+                scatterDataEntries.append(scatterDataEntry)
+                print(sortedDateKeys[i], totalExpenses[sortedDateKeys[i]]!)
+            }
         }
+        let scatterDataSet = ScatterChartDataSet(entries: scatterDataEntries, label: "Daily Total Expenses")
+        scatterDataSet.colors = ChartColorTemplates.colorful()
+
+        let data: CombinedChartData = CombinedChartData(dataSets: [scatterDataSet])
+        data.scatterData = ScatterChartData(dataSet: scatterDataSet)
+        expensesTrendingCombinedChartView.data = data
     }
 
     /*
