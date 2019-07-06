@@ -1,6 +1,8 @@
 # Expense-Management
 iOS Application to keep track Expenses
 
+To run the application:
+  Download the whole repository and run the project by Xcode.
 Several Demo Images:
 ![Demo Images](https://github.com/quocthai9120/Expense-Management/blob/master/Demo%20Images/0%20-%20Merged.png)
 
