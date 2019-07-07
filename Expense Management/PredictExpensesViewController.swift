@@ -25,6 +25,32 @@ class PredictExpensesViewController: UIViewController {
     
 
     // MARK: Supplemental Functions
+    func fitRegressionLine (xs: [Double], ys: [Double]) -> [Double] {
+        var xTotal: Double = 0.0
+        var yTotal: Double = 0.0
+        var xySum: Double = 0.0
+        var xxSum: Double = 0.0
+        let count: Int = xs.count
+        
+        for i in 0 ..< count {
+            xTotal += xs[i]
+            yTotal += ys[i]
+            xySum += xs[i] * ys[i]
+            xxSum += xs[i] * xs[i]
+        }
+        
+        let xMean: Double = xTotal / Double(count)
+        let yMean: Double = yTotal / Double(count)
+        
+        let crossDeviation: Double = xySum - Double(count) * xMean * yMean
+        let xDeviation: Double = xxSum - Double(count) * xMean * xMean
+        
+        let slope: Double = crossDeviation / xDeviation
+        let yIntercept: Double = yMean - slope * xMean
+        
+        return [slope, yIntercept]
+    }
+
     func sortDate(dateKeys: [String]) -> [String] {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MM:dd:yyyy"
@@ -67,20 +93,41 @@ class PredictExpensesViewController: UIViewController {
     func plotExpensesLineChart(sortedDateKeys: [String], totalExpenses: [String : Double]) {
         var scatterDataEntries: [ChartDataEntry] = []
         var xs: [Double] = []
+        var ys: [Double] = []
         for i in 0 ..< totalExpenses.count {
             let currentDayExpensesAmount: Double = totalExpenses[sortedDateKeys[i]]!
             if currentDayExpensesAmount != 0 {
                 let scatterDataEntry = ChartDataEntry(x: Double(i), y: currentDayExpensesAmount)
                 scatterDataEntries.append(scatterDataEntry)
                 xs.append(Double(i))
-                print(sortedDateKeys[i], totalExpenses[sortedDateKeys[i]]!)
+                ys.append(currentDayExpensesAmount)
             }
         }
+        
+        // initialize scatterplot
         let scatterDataSet = ScatterChartDataSet(entries: scatterDataEntries, label: "Daily Total Expenses")
         scatterDataSet.colors = ChartColorTemplates.colorful()
+        
+        // initialize line chart
+        let slopeAndYIntercept: [Double] = fitRegressionLine(xs: xs, ys: ys)
+        let slope: Double = slopeAndYIntercept[0]
+        let yIntercept: Double = slopeAndYIntercept[1]
 
-        let data: CombinedChartData = CombinedChartData(dataSets: [scatterDataSet])
+        var lineChartEntries: [ChartDataEntry] = []
+
+        for i in 0 ..< totalExpenses.count + 5 {
+            let yPred: Double = Double(i) * slope + yIntercept
+            let lineChartEntry = ChartDataEntry(x: Double(i), y: yPred)
+            lineChartEntries.append(lineChartEntry)
+        }
+
+        let lineDataSet = LineChartDataSet(entries: lineChartEntries, label: "Daily Expenses Trending")
+        lineDataSet.drawCirclesEnabled = false
+        lineDataSet.drawValuesEnabled = false
+        
+        let data: CombinedChartData = CombinedChartData(dataSets: [scatterDataSet, lineDataSet])
         data.scatterData = ScatterChartData(dataSet: scatterDataSet)
+        data.lineData = LineChartData(dataSet: lineDataSet)
         expensesTrendingCombinedChartView.data = data
     }
     /*

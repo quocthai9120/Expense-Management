@@ -66,7 +66,7 @@ class TrackCurrentWeekExpensesViewController: UIViewController, UITableViewDataS
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MM:dd:yyyy"
         let calendar = Calendar.current
-        let currentWeekDayIndex = calendar.component(.weekday, from: Date()) - 1
+        var currentWeekDayIndex = calendar.component(.weekday, from: Date()) - 1
         var date = calendar.startOfDay(for: Date())
 
         let allDates = Set(ViewController.GlobalVariables.dates.keys)
@@ -76,7 +76,10 @@ class TrackCurrentWeekExpensesViewController: UIViewController, UITableViewDataS
         dateFormatterRes.dateFormat = "EEEE, MM:dd:yyyy"
         // add today expenses
         currentWeekDates.append(dateFormatterRes.string(from: date))
-
+        
+        if currentWeekDayIndex == 0 {
+            currentWeekDayIndex = 6
+        }
         // add the remaining expenses
         for _ in 1...currentWeekDayIndex {
             date = calendar.date(byAdding: Calendar.Component.day, value: -1, to: date)!

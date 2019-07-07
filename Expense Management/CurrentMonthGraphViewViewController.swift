@@ -57,7 +57,7 @@ class CurrentMonthGraphViewViewController: UIViewController {
     func getCurrentMonthExpensesType() -> [String: [String : Double]] {
         let currentMonthKeys: [String] = getCurrentMonthKeys()
         var currentMonthExpensesType = [String: [String : Double]]()
-        
+
         for key in currentMonthKeys {
             let currentExpensesType = ViewController.GlobalVariables.expensesType[key]!
             currentMonthExpensesType.updateValue(currentExpensesType, forKey: key)

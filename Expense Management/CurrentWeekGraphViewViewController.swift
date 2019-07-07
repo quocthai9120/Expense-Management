@@ -35,7 +35,7 @@ class CurrentWeekGraphViewViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MM:dd:yyyy"
         let calendar = Calendar.current
-        let currentWeekDayIndex = calendar.component(.weekday, from: Date()) - 2
+        var currentWeekDayIndex = calendar.component(.weekday, from: Date()) - 1
         var date = calendar.startOfDay(for: Date())
         var currentWeekDates = [String]()
         
@@ -44,6 +44,9 @@ class CurrentWeekGraphViewViewController: UIViewController {
         // add today expenses
         currentWeekDates.append(dateFormatterRes.string(from: date))
         
+        if currentWeekDayIndex == 0 {
+            currentWeekDayIndex = 6
+        }
         // add the remaining expenses
         for _ in 1...currentWeekDayIndex {
             date = calendar.date(byAdding: Calendar.Component.day, value: -1, to: date)!
